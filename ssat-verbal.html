@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSAT Middle Level Practice — Verbal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f6f9fa; color: #203040; margin: 0; padding: 0;
+    }
+    .container {
+      max-width: 740px; margin: 2em auto; padding: 1.5em 1em;
+      background: #fff; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.09);
+    }
+    h1, h2 {
+      text-align: center; color: #194d7c;
+    }
+    .instructions {
+      background: #e6f2fc; border-left: 4px solid #72b1e2;
+      padding: 1em; margin-bottom: 1.25em;
+    }
+    .question-block {
+      margin-bottom: 2em; padding-bottom: 1em;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .question {
+      font-weight: 550; margin-bottom: 0.5em;
+    }
+    .options label {
+      display: block; background: #f0f7fa;
+      margin: 0.33em 0; padding: 0.62em 1em;
+      border-radius: 5px; cursor: pointer;
+      border: 1px solid transparent; transition: background 0.2s, border 0.2s;
+    }
+    .options input[type="radio"] {
+      accent-color: #2566bf; margin-right: 0.7em;
+    }
+    .options label.selected {
+      background: #d1eaff; border: 1px solid #2566bf;
+    }
+    .feedback {
+      margin-top: 0.7em;
+      padding: 0.7em 1em;
+      border-radius: 5px;
+      font-size: 1.04em; font-weight: 500;
+      display: none;
+    }
+    .feedback.correct {
+      background: #e3fae2; color: #26734d; border: 1px solid #6cd48a; display: block;
+    }
+    .feedback.incorrect {
+      background: #ffeaea; color: #bc2d2d; border: 1px solid #ffb2b2; display: block;
+    }
+    .section-title {
+      margin-top: 2em;
+      color: #245d85;
+      border-bottom: 2px solid #d8e6f2;
+      padding-bottom: 0.4em;
+      margin-bottom: 1.2em;
+      font-size: 1.25em;
+    }
+    .next-section-link {
+      display: inline-block;
+      margin: 2em auto 0 auto;
+      font-size: 1.18em;
+      background: #2e7dcc;
+      color: #fff;
+      padding: 0.7em 1.2em;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .next-section-link:hover {
+      background: #1b518e;
+    }
+    .score-summary {
+      text-align: center;
+      margin-top: 2em;
+      background: #f0f7fa;
+      padding: 1.5em 0.5em;
+      border-radius: 8px;
+      font-size: 1.13em;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1em 0.2em; }
+      h1, h2 { font-size: 1.15em; }
+      .question { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SSAT Middle Level Practice — Verbal Section</h1>
+    <div class="instructions">
+      <b>Directions:</b> Choose the best answer for each question. Click an answer to see if it is correct and get an explanation. At the end, you'll see your total score and a link to Reading Comprehension.
+    </div>
+
+    <div class="section-title">Synonyms</div>
+    <!-- 1-25: Synonyms -->
+    <div id="questions-synonyms"></div>
+
+    <div class="section-title">Analogies</div>
+    <!-- 26-50: Analogies -->
+    <div id="questions-analogies"></div>
+
+    <div class="score-summary" style="display:none;" id="verbal-score-summary">
+      <div id="score-text"></div>
+      <a href="ssat-reading.html" class="next-section-link">Next: Reading Comprehension</a>
+    </div>
+  </div>
+  <script>
+    // 25 Synonym Questions (harder SSAT-level)
+    const synonyms = [
+      {
+        q: "1. SYNONYM: <b>OBSCURE</b>",
+        options: ["a) Hidden", "b) Dangerous", "c) Common", "d) Bright"],
+        correct: "a",
+        explanation: "'Obscure' means hidden or not easily seen."
+      },
+      {
+        q: "2. SYNONYM: <b>ALTRUISTIC</b>",
+        options: ["a) Selfless", "b) Cruel", "c) Courageous", "d) Greedy"],
+        correct: "a",
+        explanation: "'Altruistic' means selfless, concerned for others."
+      },
+      {
+        q: "3. SYNONYM: <b>VENERATE</b>",
+        options: ["a) Respect", "b) Ignore", "c) Examine", "d) Provoke"],
+        correct: "a",
+        explanation: "'Venerate' means to respect deeply."
+      },
+      {
+        q: "4. SYNONYM: <b>PRECARIOUS</b>",
+        options: ["a) Risky", "b) Clear", "c) Stable", "d) Pleasant"],
+        correct: "a",
+        explanation: "'Precarious' means risky or dangerous."
+      },
+      {
+        q: "5. SYNONYM: <b>DISDAIN</b>",
+        options: ["a) Scorn", "b) Admire", "c) Accept", "d) Envy"],
+        correct: "a",
+        explanation: "'Disdain' means scorn or contempt."
+      },
+      {
+        q: "6. SYNONYM: <b>IMMINENT</b>",
+        options: ["a) Approaching", "b) Distant", "c) Unlikely", "d) Unclear"],
+        correct: "a",
+        explanation: "'Imminent' means about to happen."
+      },
+      {
+        q: "7. SYNONYM: <b>CONCISE</b>",
+        options: ["a) Brief", "b) Detailed", "c) Confusing", "d) Expensive"],
+        correct: "a",
+        explanation: "'Concise' means brief and to the point."
+      },
+      {
+        q: "8. SYNONYM: <b>APPEASE</b>",
+        options: ["a) Soothe", "b) Excite", "c) Annoy", "d) Ignore"],
+        correct: "a",
+        explanation: "'Appease' means to calm or soothe."
+      },
+      {
+        q: "9. SYNONYM: <b>INADVERTENT</b>",
+        options: ["a) Unintentional", "b) Careful", "c) Deliberate", "d) Quick"],
+        correct: "a",
+        explanation: "'Inadvertent' means unintentional or accidental."
+      },
+      {
+        q: "10. SYNONYM: <b>METICULOUS</b>",
+        options: ["a) Careful", "b) Careless", "c) Rushed", "d) Boring"],
+        correct: "a",
+        explanation: "'Meticulous' means very careful and precise."
+      },
+      {
+        q: "11. SYNONYM: <b>AMELIORATE</b>",
+        options: ["a) Improve", "b) Destroy", "c) Watch", "d) Ignore"],
+        correct: "a",
+        explanation: "'Ameliorate' means to make better."
+      },
+      {
+        q: "12. SYNONYM: <b>PROLIFIC</b>",
+        options: ["a) Productive", "b) Expensive", "c) Lazy", "d) Inactive"],
+        correct: "a",
+        explanation: "'Prolific' means highly productive."
+      },
+      {
+        q: "13. SYNONYM: <b>INDIGENOUS</b>",
+        options: ["a) Native", "b) Foreign", "c) Artificial", "d) Generous"],
+        correct: "a",
+        explanation: "'Indigenous' means native to a place."
+      },
+      {
+        q: "14. SYNONYM: <b>PLAUDIT</b>",
+        options: ["a) Praise", "b) Complaint", "c) Silence", "d) Argument"],
+        correct: "a",
+        explanation: "'Plaudit' means praise or applause."
+      },
+      {
+        q: "15. SYNONYM: <b>OSTENTATIOUS</b>",
+        options: ["a) Showy", "b) Modest", "c) Honest", "d) Shy"],
+        correct: "a",
+        explanation: "'Ostentatious' means showy or flashy."
+      },
+      {
+        q: "16. SYNONYM: <b>TRANQUIL</b>",
+        options: ["a) Calm", "b) Busy", "c) Loud", "d) Rough"],
+        correct: "a",
+        explanation: "'Tranquil' means calm and peaceful."
+      },
+      {
+        q: "17. SYNONYM: <b>DETRIMENTAL</b>",
+        options: ["a) Harmful", "b) Helpful", "c) Unusual", "d) Predictable"],
+        correct: "a",
+        explanation: "'Detrimental' means harmful."
+      },
+      {
+        q: "18. SYNONYM: <b>INCREDULOUS</b>",
+        options: ["a) Skeptical", "b) Trusting", "c) Generous", "d) Hopeful"],
+        correct: "a",
+        explanation: "'Incredulous' means skeptical or disbelieving."
+      },
+      {
+        q: "19. SYNONYM: <b>SUPPLANT</b>",
+        options: ["a) Replace", "b) Support", "c) Explain", "d) Plant"],
+        correct: "a",
+        explanation: "'Supplant' means to replace."
+      },
+      {
+        q: "20. SYNONYM: <b>DERIDE</b>",
+        options: ["a) Mock", "b) Encourage", "c) Support", "d) Avoid"],
+        correct: "a",
+        explanation: "'Deride' means to mock or ridicule."
+      },
+      {
+        q: "21. SYNONYM: <b>ABATE</b>",
+        options: ["a) Decrease", "b) Increase", "c) Argue", "d) Create"],
+        correct: "a",
+        explanation: "'Abate' means to decrease or lessen."
+      },
+      {
+        q: "22. SYNONYM: <b>INCITE</b>",
+        options: ["a) Provoke", "b) Calm", "c) Ignore", "d) Prevent"],
+        correct: "a",
+        explanation: "'Incite' means to provoke or stir up."
+      },
+      {
+        q: "23. SYNONYM: <b>CONGENIAL</b>",
+        options: ["a) Friendly", "b) Rude", "c) Angry", "d) Serious"],
+        correct: "a",
+        explanation: "'Congenial' means friendly and pleasant."
+      },
+      {
+        q: "24. SYNONYM: <b>OBLIVIOUS</b>",
+        options: ["a) Unaware", "b) Careful", "c) Serious", "d) Attentive"],
+        correct: "a",
+        explanation: "'Oblivious' means unaware."
+      },
+      {
+        q: "25. SYNONYM: <b>AMIABLE</b>",
+        options: ["a) Pleasant", "b) Annoyed", "c) Difficult", "d) Angry"],
+        correct: "a",
+        explanation: "'Amiable' means pleasant and friendly."
+      }
+    ];
+
+    // 25 Analogy Questions (harder SSAT-level)
+    const analogies = [
+      {
+        q: "26. <b>PARCHED : THIRSTY ::</b>",
+        options: ["a) Exhausted : Tired", "b) Tall : Short", "c) Green : Colorful", "d) Silent : Noisy"],
+        correct: "a",
+        explanation: "'Parched' means extremely thirsty; 'exhausted' means extremely tired."
+      },
+      {
+        q: "27. <b>EYEBROW : FACE ::</b>",
+        options: ["a) Knob : Door", "b) Tire : Road", "c) Bone : Skin", "d) Car : Engine"],
+        correct: "a",
+        explanation: "An eyebrow is part of a face; a knob is part of a door."
+      },
+      {
+        q: "28. <b>PHOBIA : FEAR ::</b>",
+        options: ["a) Hobby : Interest", "b) Joy : Sadness", "c) Anger : Peace", "d) Dream : Sleep"],
+        correct: "a",
+        explanation: "A phobia is an intense type of fear; a hobby is a type of interest."
+      },
+      {
+        q: "29. <b>ARCHAEOLOGIST : ARTIFACT ::</b>",
+        options: ["a) Chef : Recipe", "b) Scientist : Discovery", "c) Artist : Painting", "d) Author : Book"],
+        correct: "c",
+        explanation: "An archaeologist studies artifacts; an artist creates or studies paintings."
+      },
+      {
+        q: "30. <b>ORATOR : SPEECH ::</b>",
+        options: ["a) Chef : Recipe", "b) Pilot : Airplane", "c) Singer : Song", "d) Writer : Book"],
+        correct: "c",
+        explanation: "An orator delivers a speech; a singer performs a song."
+      },
+      {
+        q: "31. <b>GERMINATE : SEED ::</b>",
+        options: ["a) Hatch : Egg", "b) Melt : Water", "c) Grow : Leaf", "d) Bloom : Plant"],
+        correct: "a",
+        explanation: "A seed germinates; an egg hatches."
+      },
+      {
+        q: "32. <b>BENEFACTOR : DONATION ::</b>",
+        options: ["a) Teacher : Lesson", "b) Doctor : Medicine", "c) Chef : Meal", "d) Judge : Verdict"],
+        correct: "d",
+        explanation: "A benefactor gives a donation; a judge gives a verdict."
+      },
+      {
+        q: "33. <b>VOLATILE : STABLE ::</b>",
+        options: ["a) Hot : Cold", "b) Calm : Peaceful", "c) Fragile : Strong", "d) Open : Closed"],
+        correct: "c",
+        explanation: "'Volatile' is the opposite of 'stable'; 'fragile' is the opposite of 'strong.'"
+      },
+      {
+        q: "34. <b>THERMOMETER : TEMPERATURE ::</b>",
+        options: ["a) Clock : Time", "b) Scale : Length", "c) Calendar : Weather", "d) Barometer : Weight"],
+        correct: "a",
+        explanation: "A thermometer measures temperature; a clock measures time."
+      },
+      {
+        q: "35. <b>RAVENOUS : HUNGRY ::</b>",
+        options: ["a) Sluggish : Slow", "b) Wet : Dry", "c) Small : Tiny", "d) Tall : Giant"],
+        correct: "a",
+        explanation: "'Ravenous' means extremely hungry; 'sluggish' means extremely slow."
+      },
+      {
+        q: "36. <b>ANTIDOTE : POISON ::</b>",
+        options: ["a) Bandage : Wound", "b) Soap : Dirt", "c) Light : Dark", "d) Helmet : Bicycle"],
+        correct: "b",
+        explanation: "An antidote counteracts poison; soap counteracts dirt."
+      },
+      {
+        q: "37. <b>HABITUAL : OCCASIONAL ::</b>",
+        options: ["a) Frequent : Rare", "b) Loud : Quiet", "c) Long : Short", "d) Quick : Fast"],
+        correct: "a",
+        explanation: "'Habitual' is the opposite of 'occasional'; 'frequent' is the opposite of 'rare.'"
+      },
+      {
+        q: "38. <b>GLACIER : ICE ::</b>",
+        options: ["a) Desert : Sand", "b) Ocean : Fish", "c) Forest : Tree", "d) Rain : Cloud"],
+        correct: "a",
+        explanation: "A glacier is made of ice; a desert is made of sand."
+      },
+      {
+        q: "39. <b>ARCHITECT : BUILDING ::</b>",
+        options: ["a) Poet : Poem", "b) Chef : Food", "c) Carpenter : Tool", "d) Teacher : Student"],
+        correct: "a",
+        explanation: "An architect designs a building; a poet creates a poem."
+      },
+      {
+        q: "40. <b>OMNIVORE : PLANTS ::</b>",
+        options: ["a) Carnivore : Meat", "b) Herbivore : Plants", "c) Insectivore : Insects", "d) Frugivore : Fruit"],
+        correct: "b",
+        explanation: "An omnivore eats both plants and animals; a herbivore eats only plants."
+      },
+      {
+        q: "41. <b>APPLAUSE : PERFORMANCE ::</b>",
+        options: ["a) Criticism : Mistake", "b) Rain : Storm", "c) Silence : Library", "d) Vote : Election"],
+        correct: "a",
+        explanation: "Applause follows a performance; criticism follows a mistake."
+      },
+      {
+        q: "42. <b>SPHERE : BALL ::</b>",
+        options: ["a) Cube : Dice", "b) Circle : Square", "c) Rectangle : Triangle", "d) Pyramid : Cone"],
+        correct: "a",
+        explanation: "A sphere is the shape of a ball; a cube is the shape of dice."
+      },
+      {
+        q: "43. <b>HUMID : MOIST ::</b>",
+        options: ["a) Dry : Arid", "b) Wet : Damp", "c) Cold : Hot", "d) Light : Dark"],
+        correct: "b",
+        explanation: "'Humid' means very moist; 'wet' means very damp."
+      },
+      {
+        q: "44. <b>SAGA : STORY ::</b>",
+        options: ["a) Epic : Poem", "b) Short : Small", "c) Book : Library", "d) Legend : Fact"],
+        correct: "a",
+        explanation: "A saga is a long story; an epic is a long poem."
+      },
+      {
+        q: "45. <b>RADIATE : LIGHT ::</b>",
+        options: ["a) Emit : Sound", "b) Freeze : Water", "c) Paint : Wall", "d) Write : Letter"],
+        correct: "a",
+        explanation: "'Radiate' is to send out light; 'emit' is to send out sound."
+      },
+      {
+        q: "46. <b>CHRONIC : TEMPORARY ::</b>",
+        options: ["a) Lasting : Brief", "b) Fast : Quick", "c) Hot : Cold", "d) Up : Down"],
+        correct: "a",
+        explanation: "'Chronic' is the opposite of 'temporary'; 'lasting' is the opposite of 'brief.'"
+      },
+      {
+        q: "47. <b>FRACTION : NUMBER ::</b>",
+        options: ["a) Slice : Cake", "b) Word : Sentence", "c) Piece : Puzzle", "d) Room : House"],
+        correct: "a",
+        explanation: "A fraction is a part of a number; a slice is part of a cake."
+      },
+      {
+        q: "48. <b>SYMPHONY : MUSICIAN ::</b>",
+        options: ["a) Poem : Poet", "b) Recipe : Chef", "c) Law : Lawyer", "d) Painting : Artist"],
+        correct: "a",
+        explanation: "A symphony is performed by musicians; a poem is written by a poet."
+      },
+      {
+        q: "49. <b>FUSION : BLEND ::</b>",
+        options: ["a) Mixture : Combine", "b) Division : Separate", "c) Multiply : Add", "d) Join : Fight"],
+        correct: "a",
+        explanation: "'Fusion' means blend; 'mixture' means combine."
+      },
+      {
+        q: "50. <b>ELUSIVE : CAPTURE ::</b>",
+        options: ["a) Evasive : Find", "b) Easy : Difficult", "c) Simple : Complex", "d) Fast : Slow"],
+        correct: "a",
+        explanation: "'Elusive' means hard to capture; 'evasive' means hard to find."
+      }
+    ];
+
+    // Render questions
+    function renderQuestions(containerId, questions, offset=0) {
+      const container = document.getElementById(containerId);
+      questions.forEach((item, idx) => {
+        const qid = "q" + (offset + idx + 1);
+        const qDiv = document.createElement("div");
+        qDiv.className = "question-block";
+        qDiv.id = qid;
+        // Question
+        const qText = document.createElement("div");
+        qText.className = "question";
+        qText.innerHTML = item.q;
+        qDiv.appendChild(qText);
+        // Options
+        const optionsDiv = document.createElement("div");
+        optionsDiv.className = "options";
+        item.options.forEach((opt, i) => {
+          const label = document.createElement("label");
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = qid;
+          radio.value = "abcd"[i];
+          label.appendChild(radio);
+          label.appendChild(document.createTextNode(opt));
+          optionsDiv.appendChild(label);
+        });
+        qDiv.appendChild(optionsDiv);
+        // Feedback
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.className = "feedback";
+        qDiv.appendChild(feedbackDiv);
+        container.appendChild(qDiv);
+      });
+    }
+    renderQuestions("questions-synonyms", synonyms, 0);
+    renderQuestions("questions-analogies", analogies, 25);
+
+    // Answer key
+    const answerKey = {};
+    synonyms.forEach((item, idx) => {
+      answerKey["q"+(idx+1)] = {correct: item.correct, explanation: item.explanation};
+    });
+    analogies.forEach((item, idx) => {
+      answerKey["q"+(idx+26)] = {correct: item.correct, explanation: item.explanation};
+    });
+
+    // Instant feedback & scoring
+    let score = 0;
+    let total = 50;
+    let answered = 0;
+    document.querySelectorAll('.question-block').forEach(function(block) {
+      const qid = block.id;
+      const options = block.querySelectorAll('input[type="radio"]');
+      options.forEach(function(option) {
+        option.addEventListener('change', function() {
+          // Remove selected styles
+          block.querySelectorAll('label').forEach(label => label.classList.remove('selected'));
+          // Highlight selected label
+          option.parentElement.classList.add('selected');
+          // Feedback
+          const feedbackDiv = block.querySelector('.feedback');
+          const ans = answerKey[qid];
+          if (!ans) return;
+          if (option.value === ans.correct) {
+            feedbackDiv.textContent = "Correct! " + ans.explanation;
+            feedbackDiv.className = "feedback correct";
+            if (!block.dataset.answered) {
+              score++;
+              block.dataset.answered = "1";
+              answered++;
+            }
+          } else {
+            feedbackDiv.textContent = "Incorrect. " + ans.explanation;
+            feedbackDiv.className = "feedback incorrect";
+            if (!block.dataset.answered) {
+              block.dataset.answered = "1";
+              answered++;
+            }
+          }
+          feedbackDiv.style.display = "block";
+          // Lock in answer
+          options.forEach(o => o.disabled = true);
+          // If all answered, show score
+          if (answered === total) {
+            document.getElementById("verbal-score-summary").style.display = "block";
+            document.getElementById("score-text").innerHTML =
+              `<b>Your score: ${score} / ${total}</b><br>Great job! Click below to continue to Reading Comprehension.`;
+            window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
