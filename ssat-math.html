@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SSAT Middle Level Practice — Quantitative (Math)</title>
+  <title>SSAT Upper Level Practice — Quantitative (Math)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
@@ -10,7 +10,7 @@
       background: #f7fafb; color: #222f42; margin: 0; padding: 0;
     }
     .container {
-      max-width: 760px; margin: 2em auto; padding: 1.5em 1em;
+      max-width: 800px; margin: 2em auto; padding: 1.5em 1em;
       background: #fff; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.10);
     }
     h1, h2 {
@@ -53,6 +53,14 @@
     .feedback.incorrect {
       background: #ffeaea; color: #bc2d2d; border: 1px solid #ffb2b2; display: block;
     }
+    .score-summary {
+      text-align: center;
+      margin-top: 2em;
+      background: #f0f7fa;
+      padding: 1.5em 0.5em;
+      border-radius: 8px;
+      font-size: 1.13em;
+    }
     .next-section-link {
       display: inline-block;
       margin: 2em auto 0 auto;
@@ -66,14 +74,6 @@
     }
     .next-section-link:hover {
       background: #1b518e;
-    }
-    .score-summary {
-      text-align: center;
-      margin-top: 2em;
-      background: #f0f7fa;
-      padding: 1.5em 0.5em;
-      border-radius: 8px;
-      font-size: 1.13em;
     }
     .restart-btn {
       display: inline-block;
@@ -90,20 +90,6 @@
     }
     .restart-btn:hover {
       background: #bcd2e6;
-    }
-    .essay-section {
-      background: #f3f8fc; border-left: 4px solid #6ab7ff;
-      padding: 1.2em 1em 1.1em 1em; margin-bottom: 2em; margin-top: 2em;
-      border-radius: 6px; font-size: 1.02em;
-    }
-    .essay-label {
-      font-weight: 600; margin-bottom: 0.7em; display: block;
-    }
-    .essay-score {
-      margin-top: 0.8em;
-      font-size: 1.06em;
-      font-weight: 500;
-      color: #2566bf;
     }
     .section-links {
       margin-top: 2em; text-align: center;
@@ -123,28 +109,15 @@
 </head>
 <body>
   <div class="container">
-    <h1>SSAT Middle Level Practice — Quantitative (Math)</h1>
+    <h1>SSAT Upper Level Practice — Quantitative (Math)</h1>
     <div class="instructions">
-      <b>Directions:</b> Select the best answer for each question. Click an answer for instant feedback and an explanation. At the end, you'll see your score and a writing prompt.
+      <b>Directions:</b> Select the best answer for each question. Click an answer for instant feedback and an explanation. At the end, you'll see your score.
     </div>
 
     <div id="math-content"></div>
 
     <div class="score-summary" style="display:none;" id="math-score-summary">
       <div id="score-text"></div>
-      <div class="essay-section">
-        <label class="essay-label">Writing Prompt (Optional):</label>
-        <div>
-          <b>Imagine you are the leader of a new school club. What is your club about, and how will you make it successful?</b>
-        </div>
-        <textarea id="essay-text" style="width:100%;min-height:80px;margin-top:0.7em;resize:vertical;" placeholder="Write your essay here..."></textarea>
-        <div style="margin-top:0.8em;">
-          <label for="essay-score-input">Parent/Teacher Score (1-5):</label>
-          <input id="essay-score-input" type="number" min="1" max="5" style="width:50px;">
-          <button id="essay-score-btn" class="restart-btn" style="padding:0.32em 1em;">Submit Score</button>
-        </div>
-        <div class="essay-score" id="essay-score-result"></div>
-      </div>
       <a href="ssat-verbal.html" class="next-section-link" style="margin-bottom:0.8em;">Go to Verbal Section</a>
       <a href="ssat-reading.html" class="next-section-link" style="background:#4a9c2b;margin-bottom:0.8em;">Go to Reading Section</a>
       <button class="restart-btn" onclick="window.location.reload()">Restart Math Section</button>
@@ -156,316 +129,327 @@
     </div>
   </div>
   <script>
-    // 50 Math Questions: SSAT-style, challenging, with explanations
-    // Topics: arithmetic, fractions, decimals, percents, word problems, geometry, algebra, sequences
-
+    // SSAT Upper Level: 50 diverse, challenging questions
     const mathQuestions = [
-      // 1-10: Arithmetic, fractions, decimals, percents
+      // 1-10: Algebra, multi-step equations, exponents
       {
-        q: "1. What is the value of 25% of 160?",
-        options: ["a) 32", "b) 40", "c) 64", "d) 80"],
-        correct: "b",
-        explanation: "25% of 160 = 0.25 × 160 = 40."
-      },
-      {
-        q: "2. Which of the following is equal to 0.75?",
-        options: ["a) 1/2", "b) 3/4", "c) 1/3", "d) 2/5"],
-        correct: "b",
-        explanation: "0.75 = 3/4."
-      },
-      {
-        q: "3. What is 5/8 + 1/4?",
-        options: ["a) 7/8", "b) 3/8", "c) 6/8", "d) 5/12"],
-        correct: "a",
-        explanation: "1/4 = 2/8; 5/8 + 2/8 = 7/8."
-      },
-      {
-        q: "4. Which of these is closest to 2.7 × 4?",
-        options: ["a) 8.1", "b) 10.5", "c) 12", "d) 14.8"],
-        correct: "c",
-        explanation: "2.7 × 4 = 10.8, which is closest to 12."
-      },
-      {
-        q: "5. What is 120 divided by 0.5?",
-        options: ["a) 60", "b) 180", "c) 240", "d) 2400"],
-        correct: "c",
-        explanation: "120 ÷ 0.5 = 120 × 2 = 240."
-      },
-      {
-        q: "6. If 2/3 of a number is 12, what is the number?",
-        options: ["a) 6", "b) 8", "c) 16", "d) 18"],
-        correct: "d",
-        explanation: "2/3 × n = 12 ⇒ n = 12 ÷ (2/3) = 12 × 3/2 = 18."
-      },
-      {
-        q: "7. What is the least common multiple (LCM) of 8 and 12?",
-        options: ["a) 16", "b) 24", "c) 32", "d) 36"],
-        correct: "b",
-        explanation: "Multiples: 8, 16, 24...; 12, 24... LCM = 24."
-      },
-      {
-        q: "8. Which number is a prime number?",
-        options: ["a) 21", "b) 33", "c) 29", "d) 27"],
-        correct: "c",
-        explanation: "29 is only divisible by 1 and itself."
-      },
-      {
-        q: "9. What is 3/5 of 90?",
-        options: ["a) 18", "b) 27", "c) 54", "d) 72"],
-        correct: "c",
-        explanation: "3/5 × 90 = 54."
-      },
-      {
-        q: "10. Which of the following is equal to 15%?",
-        options: ["a) 1/7", "b) 1/5", "c) 3/20", "d) 3/25"],
-        correct: "c",
-        explanation: "15% = 15/100 = 3/20."
-      },
-      // 11-20: Word problems, rates, ratios, proportions
-      {
-        q: "11. A car travels 180 miles in 3 hours. What is its average speed?",
-        options: ["a) 45 mph", "b) 54 mph", "c) 60 mph", "d) 90 mph"],
-        correct: "c",
-        explanation: "Speed = distance/time = 180/3 = 60 mph."
-      },
-      {
-        q: "12. If 5 pencils cost $3.00, how much do 8 pencils cost at the same rate?",
-        options: ["a) $4.00", "b) $4.80", "c) $5.00", "d) $5.80"],
-        correct: "b",
-        explanation: "$3.00/5 = $0.60 per pencil; 8 × $0.60 = $4.80."
-      },
-      {
-        q: "13. A recipe uses 2 cups of flour for every 3 cups of sugar. If you use 12 cups of sugar, how much flour is needed?",
-        options: ["a) 6 cups", "b) 8 cups", "c) 10 cups", "d) 14 cups"],
-        correct: "b",
-        explanation: "2/3 = x/12 ⇒ x = (2/3)×12 = 8."
-      },
-      {
-        q: "14. A train leaves at 9:00 AM and arrives at 2:30 PM. How long is the journey?",
-        options: ["a) 4 hours 30 min", "b) 5 hours", "c) 5 hours 30 min", "d) 6 hours"],
-        correct: "c",
-        explanation: "2:30 PM - 9:00 AM = 5 hours 30 min."
-      },
-      {
-        q: "15. If 3x = 27, what is x?",
-        options: ["a) 6", "b) 7", "c) 8", "d) 9"],
-        correct: "d",
-        explanation: "x = 27/3 = 9."
-      },
-      {
-        q: "16. If 5 apples cost $2.50, what is the cost of 12 apples?",
-        options: ["a) $5.50", "b) $5.75", "c) $6.00", "d) $6.50"],
-        correct: "c",
-        explanation: "$2.50/5 = $0.50 per apple; 12 × $0.50 = $6.00."
-      },
-      {
-        q: "17. A class has 12 boys and 16 girls. What fraction of the class is girls?",
-        options: ["a) 1/3", "b) 2/3", "c) 3/4", "d) 4/7"],
-        correct: "b",
-        explanation: "Total = 28; girls = 16/28 = 4/7."
-      },
-      {
-        q: "18. If 12 is 20% of a number, what is the number?",
-        options: ["a) 60", "b) 48", "c) 36", "d) 24"],
-        correct: "a",
-        explanation: "n × 0.20 = 12 ⇒ n = 12/0.2 = 60."
-      },
-      {
-        q: "19. If 2 notebooks cost $3, how much do 5 notebooks cost?",
-        options: ["a) $6", "b) $7.50", "c) $8", "d) $9"],
-        correct: "b",
-        explanation: "$3/2 = $1.50 each; 5 × $1.50 = $7.50."
-      },
-      {
-        q: "20. A bag contains red, blue, and green marbles. If 1/5 are red, 2/5 are blue, and the rest are green, what fraction are green?",
-        options: ["a) 1/3", "b) 1/5", "c) 2/5", "d) 3/5"],
-        correct: "a",
-        explanation: "Red + Blue = 3/5; Green = 1 - 3/5 = 2/5."
-      },
-      // 21-30: Geometry, area, perimeter, angles, volume
-      {
-        q: "21. What is the area of a rectangle with length 12 cm and width 7 cm?",
-        options: ["a) 19 cm²", "b) 42 cm²", "c) 84 cm²", "d) 96 cm²"],
-        correct: "c",
-        explanation: "Area = 12 × 7 = 84 cm²."
-      },
-      {
-        q: "22. What is the perimeter of a square with side 9 cm?",
-        options: ["a) 18 cm", "b) 27 cm", "c) 36 cm", "d) 81 cm"],
-        correct: "c",
-        explanation: "Perimeter = 4 × 9 = 36 cm."
-      },
-      {
-        q: "23. What is the volume of a rectangular prism 3 cm × 4 cm × 5 cm?",
-        options: ["a) 12 cm³", "b) 15 cm³", "c) 30 cm³", "d) 60 cm³"],
-        correct: "d",
-        explanation: "Volume = 3 × 4 × 5 = 60 cm³."
-      },
-      {
-        q: "24. In a triangle, one angle is 90°, and another is 45°. What is the third angle?",
-        options: ["a) 30°", "b) 35°", "c) 45°", "d) 60°"],
-        correct: "c",
-        explanation: "Sum = 180°; third angle = 180 - 90 - 45 = 45°."
-      },
-      {
-        q: "25. How many degrees are in a straight angle?",
-        options: ["a) 90°", "b) 120°", "c) 180°", "d) 360°"],
-        correct: "c",
-        explanation: "A straight angle measures 180°."
-      },
-      {
-        q: "26. What is the area of a right triangle with base 10 cm and height 8 cm?",
-        options: ["a) 40 cm²", "b) 80 cm²", "c) 18 cm²", "d) 36 cm²"],
-        correct: "a",
-        explanation: "Area = (1/2) × base × height = (1/2) × 10 × 8 = 40 cm²."
-      },
-      {
-        q: "27. A circle has a radius of 7 cm. What is its diameter?",
-        options: ["a) 7 cm", "b) 14 cm", "c) 21 cm", "d) 49 cm"],
-        correct: "b",
-        explanation: "Diameter = 2 × radius = 14 cm."
-      },
-      {
-        q: "28. What is the perimeter of a rectangle with length 13 cm and width 5 cm?",
-        options: ["a) 18 cm", "b) 26 cm", "c) 36 cm", "d) 44 cm"],
-        correct: "d",
-        explanation: "Perimeter = 2 × (13 + 5) = 36 cm."
-      },
-      {
-        q: "29. What is the sum of the interior angles of a quadrilateral?",
-        options: ["a) 90°", "b) 180°", "c) 270°", "d) 360°"],
-        correct: "d",
-        explanation: "Quadrilateral: 4 sides, sum = (4-2)×180 = 360°."
-      },
-      {
-        q: "30. What is the area of a square with side length 11 cm?",
-        options: ["a) 22 cm²", "b) 44 cm²", "c) 121 cm²", "d) 132 cm²"],
-        correct: "c",
-        explanation: "Area = side × side = 11 × 11 = 121 cm²."
-      },
-      // 31-40: Pre-algebra, equations, inequalities, patterns, number properties
-      {
-        q: "31. If 4x + 7 = 31, what is x?",
+        q: "1. If 2x + 3 = 17, what is the value of x?",
         options: ["a) 5", "b) 6", "c) 7", "d) 8"],
         correct: "b",
-        explanation: "4x + 7 = 31 ⇒ 4x = 24 ⇒ x = 6."
+        explanation: "2x + 3 = 17 ⇒ 2x = 14 ⇒ x = 7."
       },
       {
-        q: "32. Which value of x solves the equation x/6 = 9?",
-        options: ["a) 1.5", "b) 15", "c) 54", "d) 63"],
-        correct: "c",
-        explanation: "x = 9 × 6 = 54."
-      },
-      {
-        q: "33. If y - 7 = 15, what is y?",
-        options: ["a) 8", "b) 22", "c) 7", "d) 15"],
+        q: "2. Solve for x: 3(x - 4) = 2x + 5",
+        options: ["a) 1", "b) 9", "c) -7", "d) 17"],
         correct: "b",
-        explanation: "y = 15 + 7 = 22."
+        explanation: "3x - 12 = 2x + 5 ⇒ x = 17."
       },
       {
-        q: "34. If 5a = 40, what is a?",
-        options: ["a) 8", "b) 45", "c) 35", "d) 5"],
+        q: "3. What is the value of 2^4 × 2^3?",
+        options: ["a) 14", "b) 32", "c) 128", "d) 64"],
+        correct: "d",
+        explanation: "2^4 × 2^3 = 2^7 = 128."
+      },
+      {
+        q: "4. If 4x - 7 = 25, then x = ?",
+        options: ["a) 8", "b) 6", "c) 4", "d) 12"],
         correct: "a",
-        explanation: "a = 40/5 = 8."
+        explanation: "4x = 32 ⇒ x = 8."
       },
       {
-        q: "35. What is the next number in the sequence: 2, 6, 18, 54, ___?",
+        q: "5. If x^2 = 49, what is x?",
+        options: ["a) 7", "b) -7", "c) Both 7 and -7", "d) 0"],
+        correct: "c",
+        explanation: "x = ±7."
+      },
+      {
+        q: "6. Simplify: (x^3)(x^2)",
+        options: ["a) x^5", "b) x^6", "c) x^9", "d) x^8"],
+        correct: "a",
+        explanation: "Add exponents: x^3 × x^2 = x^(3+2) = x^5."
+      },
+      {
+        q: "7. If 5x + 7 = 2x + 28, what is x?",
+        options: ["a) 7", "b) 8", "c) 9", "d) 10"],
+        correct: "c",
+        explanation: "5x + 7 = 2x + 28 ⇒ 3x = 21 ⇒ x = 7."
+      },
+      {
+        q: "8. Which value of x satisfies the equation x^2 - 10x + 21 = 0?",
+        options: ["a) 3", "b) 7", "c) Both 3 and 7", "d) 21"],
+        correct: "c",
+        explanation: "x^2 - 10x + 21 = (x-3)(x-7) = 0 ⇒ x=3 or x=7."
+      },
+      {
+        q: "9. If 4^x = 16, what is x?",
+        options: ["a) 2", "b) 3", "c) 4", "d) 5"],
+        correct: "a",
+        explanation: "4^x = 16 ⇒ 4^2 = 16 ⇒ x = 2."
+      },
+      {
+        q: "10. Simplify: (2x^2y) × (3xy^2)",
+        options: ["a) 6x^3y^3", "b) 5x^3y^2", "c) 6x^2y^3", "d) 5x^2y^2"],
+        correct: "a",
+        explanation: "Multiply coefficients and add exponents: 2×3=6, x^2×x=x^3, y×y^2=y^3."
+      },
+
+      // 11-20: Fractions, ratios, percentages, multi-step word problems
+      {
+        q: "11. What is 60% of 250?",
+        options: ["a) 150", "b) 125", "c) 200", "d) 180"],
+        correct: "a",
+        explanation: "0.60 × 250 = 150."
+      },
+      {
+        q: "12. If 1/3 of a number is 9, what is the number?",
+        options: ["a) 18", "b) 27", "c) 21", "d) 24"],
+        correct: "b",
+        explanation: "x/3 = 9 ⇒ x = 27."
+      },
+      {
+        q: "13. A recipe calls for flour and sugar in a 5:2 ratio. If there are 35 cups of flour, how many cups of sugar are needed?",
+        options: ["a) 7", "b) 10", "c) 12", "d) 14"],
+        correct: "d",
+        explanation: "5:2 = 35:x ⇒ 5x = 70 ⇒ x = 14."
+      },
+      {
+        q: "14. If the price of a $50 item is increased by 30%, what is the new price?",
+        options: ["a) $65", "b) $60", "c) $55", "d) $80"],
+        correct: "a",
+        explanation: "$50 × 1.3 = $65."
+      },
+      {
+        q: "15. If a shirt is regularly $48 and is on sale for 25% off, what is the sale price?",
+        options: ["a) $36", "b) $40", "c) $42", "d) $44"],
+        correct: "a",
+        explanation: "$48 × 0.75 = $36."
+      },
+      {
+        q: "16. A car travels 120 miles in 2 hours and 30 minutes. What is the average speed in miles per hour?",
+        options: ["a) 40", "b) 45", "c) 48", "d) 50"],
+        correct: "b",
+        explanation: "2.5 hours: 120 ÷ 2.5 = 48 mph."
+      },
+      {
+        q: "17. If 5/8 of a number is 40, what is the number?",
+        options: ["a) 50", "b) 52", "c) 60", "d) 64"],
+        correct: "d",
+        explanation: "5/8 × x = 40 ⇒ x = 40 × 8 ÷ 5 = 64."
+      },
+      {
+        q: "18. A store sells pens in packs of 8 for $5. How much would 40 pens cost?",
+        options: ["a) $20", "b) $24", "c) $25", "d) $30"],
+        correct: "a",
+        explanation: "40 ÷ 8 = 5 packs × $5 = $25."
+      },
+      {
+        q: "19. What percent of 80 is 20?",
+        options: ["a) 10%", "b) 15%", "c) 25%", "d) 50%"],
+        correct: "c",
+        explanation: "20 ÷ 80 = 0.25 = 25%."
+      },
+      {
+        q: "20. If 40% of a number is 60, what is the number?",
+        options: ["a) 120", "b) 150", "c) 180", "d) 200"],
+        correct: "b",
+        explanation: "0.4x = 60 ⇒ x = 150."
+      },
+
+      // 21-30: Geometry, area, perimeter, angles, volume, coordinate plane
+      {
+        q: "21. What is the area of a triangle with base 10 cm and height 12 cm?",
+        options: ["a) 60", "b) 120", "c) 48", "d) 72"],
+        correct: "a",
+        explanation: "Area = 1/2 × base × height = 1/2 × 10 × 12 = 60 cm²."
+      },
+      {
+        q: "22. The sum of the interior angles of a pentagon is:",
+        options: ["a) 360°", "b) 540°", "c) 720°", "d) 900°"],
+        correct: "b",
+        explanation: "(n-2)×180 = (5-2)×180 = 540°."
+      },
+      {
+        q: "23. What is the volume of a rectangular box 4 cm × 5 cm × 6 cm?",
+        options: ["a) 120", "b) 100", "c) 90", "d) 80"],
+        correct: "a",
+        explanation: "Volume = 4×5×6 = 120 cm³."
+      },
+      {
+        q: "24. What is the length of the diagonal of a rectangle with sides 6 and 8?",
+        options: ["a) 10", "b) 12", "c) 14", "d) 15"],
+        correct: "a",
+        explanation: "Diagonal = √(6² + 8²) = √(36+64) = √100 = 10."
+      },
+      {
+        q: "25. What is the distance between points (3,4) and (0,0)?",
+        options: ["a) 3", "b) 4", "c) 5", "d) 7"],
+        correct: "c",
+        explanation: "Distance = √(3² + 4²) = √9+16 = √25 = 5."
+      },
+      {
+        q: "26. A circle has a diameter of 10 cm. What is its circumference? (Use π ≈ 3.14)",
+        options: ["a) 15.7", "b) 31.4", "c) 62.8", "d) 78.5"],
+        correct: "b",
+        explanation: "C = πd = 3.14 × 10 = 31.4 cm."
+      },
+      {
+        q: "27. If the perimeter of a square is 36 cm, what is the length of one side?",
+        options: ["a) 6", "b) 8", "c) 9", "d) 12"],
+        correct: "c",
+        explanation: "Perimeter = 4 × side ⇒ 36/4 = 9 cm."
+      },
+      {
+        q: "28. The area of a circle with radius 7 cm is:",
+        options: ["a) 49π", "b) 14π", "c) 21π", "d) 28π"],
+        correct: "a",
+        explanation: "Area = πr² = π×7² = 49π."
+      },
+      {
+        q: "29. Which point lies on the line y = 2x + 1?",
+        options: ["a) (2,5)", "b) (1,1)", "c) (0,2)", "d) (3,8)"],
+        correct: "a",
+        explanation: "y = 2×2 + 1 = 5, so (2,5) is on the line."
+      },
+      {
+        q: "30. In a right triangle, if one leg is 9 cm and the other is 12 cm, what is the length of the hypotenuse?",
+        options: ["a) 15", "b) 13", "c) 12", "d) 10"],
+        correct: "a",
+        explanation: "Hypotenuse = √(9²+12²)=√(81+144)=√225=15 cm."
+      },
+
+      // 31-40: More algebra, inequalities, functions, sequences
+      {
+        q: "31. If f(x) = 2x + 5, what is f(3)?",
+        options: ["a) 6", "b) 8", "c) 11", "d) 13"],
+        correct: "c",
+        explanation: "f(3) = 2×3 + 5 = 11."
+      },
+      {
+        q: "32. If 3x - 4 > 8, what is the smallest integer value of x?",
+        options: ["a) 3", "b) 4", "c) 5", "d) 6"],
+        correct: "c",
+        explanation: "3x > 12 ⇒ x > 4; smallest integer is 5."
+      },
+      {
+        q: "33. If a sequence starts 2, 6, 18, 54, ..., what is the 5th term?",
         options: ["a) 108", "b) 162", "c) 216", "d) 324"],
         correct: "b",
-        explanation: "Each term ×3; 54 × 3 = 162."
+        explanation: "Multiply by 3 each time: 54×3=162."
       },
       {
-        q: "36. What is the value of 2³ × 3²?",
-        options: ["a) 18", "b) 24", "c) 36", "d) 72"],
-        correct: "d",
-        explanation: "2³ = 8; 3² = 9; 8 × 9 = 72."
-      },
-      {
-        q: "37. Which number is divisible by 6?",
-        options: ["a) 32", "b) 48", "c) 55", "d) 75"],
+        q: "34. If x^2 = 81, x > 0, what is x?",
+        options: ["a) 8", "b) 9", "c) -9", "d) 81"],
         correct: "b",
-        explanation: "48 ÷ 6 = 8."
+        explanation: "x = 9 (since x>0)."
       },
       {
-        q: "38. If 2n + 5 = 19, what is n?",
-        options: ["a) 5", "b) 6", "c) 7", "d) 8"],
-        correct: "c",
-        explanation: "2n = 14 ⇒ n = 7."
-      },
-      {
-        q: "39. What is the greatest common factor (GCF) of 36 and 54?",
-        options: ["a) 6", "b) 9", "c) 12", "d) 18"],
-        correct: "d",
-        explanation: "36: 1,2,3,6,9,12,18,36; 54: 1,2,3,6,9,18,27,54; GCF = 18."
-      },
-      {
-        q: "40. If 6(x - 2) = 24, what is x?",
-        options: ["a) 2", "b) 4", "c) 5", "d) 6"],
-        correct: "d",
-        explanation: "x - 2 = 4 ⇒ x = 6."
-      },
-      // 41-50: Challenging word problems, mixed review
-      {
-        q: "41. The sum of three consecutive even numbers is 48. What is the largest number?",
-        options: ["a) 14", "b) 16", "c) 18", "d) 20"],
-        correct: "c",
-        explanation: "Let numbers be x, x+2, x+4; x + x+2 + x+4 = 3x+6=48 ⇒ 3x=42 ⇒ x=14; largest is 18."
-      },
-      {
-        q: "42. A box contains 2 red, 3 blue, and 5 green marbles. What is the probability of picking a blue marble?",
-        options: ["a) 1/2", "b) 3/10", "c) 1/5", "d) 2/5"],
-        correct: "b",
-        explanation: "Total = 10; blue = 3/10."
-      },
-      {
-        q: "43. What is the average of 5, 9, 11, and 15?",
-        options: ["a) 8", "b) 10", "c) 12", "d) 15"],
-        correct: "c",
-        explanation: "Sum = 40; average = 40/4 = 10."
-      },
-      {
-        q: "44. If x > 5 and x < 9, which could be the value of x?",
-        options: ["a) 10", "b) 5", "c) 7", "d) 9"],
-        correct: "c",
-        explanation: "7 is between 5 and 9."
-      },
-      {
-        q: "45. A triangle has sides 6 cm, 8 cm, and 10 cm. What type of triangle is it?",
-        options: ["a) Equilateral", "b) Isosceles", "c) Right", "d) Scalene"],
-        correct: "c",
-        explanation: "6²+8²=36+64=100=10²; right triangle."
-      },
-      {
-        q: "46. A store is having a 20% off sale. If a jacket costs $60 before the sale, what is the sale price?",
-        options: ["a) $48", "b) $50", "c) $52", "d) $54"],
-        correct: "b",
-        explanation: "20% of $60 = $12; sale price = $60 - $12 = $48."
-      },
-      {
-        q: "47. What is the median of these numbers: 6, 13, 9, 15, 11?",
-        options: ["a) 9", "b) 11", "c) 13", "d) 15"],
-        correct: "b",
-        explanation: "Arranged: 6,9,11,13,15; median is 11."
-      },
-      {
-        q: "48. A number is multiplied by 6 and then 24 is subtracted. The result is 12. What is the number?",
-        options: ["a) 4", "b) 6", "c) 8", "d) 12"],
+        q: "35. If 2x + 5y = 24 and x = 2, what is y?",
+        options: ["a) 4", "b) 5", "c) 6", "d) 7"],
         correct: "a",
-        explanation: "Let x; 6x - 24 = 12 ⇒ 6x=36 ⇒ x=6."
+        explanation: "2×2+5y=24→4+5y=24→5y=20→y=4."
       },
       {
-        q: "49. What is the value of 4! (4 factorial)?",
-        options: ["a) 10", "b) 16", "c) 24", "d) 32"],
-        correct: "c",
-        explanation: "4! = 4 × 3 × 2 × 1 = 24."
-      },
-      {
-        q: "50. If a student scores 80, 85, 90, and 95 on four tests, what is the student’s average score?",
-        options: ["a) 85", "b) 87.5", "c) 90", "d) 92.5"],
+        q: "36. The sum of the first five positive even numbers is:",
+        options: ["a) 20", "b) 30", "c) 40", "d) 50"],
         correct: "b",
-        explanation: "Sum = 350; average = 350/4 = 87.5."
+        explanation: "2+4+6+8+10=30."
+      },
+      {
+        q: "37. If x < 2 and x > -1, which could be x?",
+        options: ["a) -2", "b) 2", "c) 1", "d) 3"],
+        correct: "c",
+        explanation: "1 is between -1 and 2."
+      },
+      {
+        q: "38. If f(x) = x^2 - 3x, what is f(4)?",
+        options: ["a) 4", "b) 8", "c) 12", "d) 28"],
+        correct: "a",
+        explanation: "4^2 - 3×4 = 16 - 12 = 4."
+      },
+      {
+        q: "39. Which number is a solution to the inequality 2x + 1 ≤ 7?",
+        options: ["a) 4", "b) 5", "c) 3", "d) 6"],
+        correct: "c",
+        explanation: "2×3+1=7, so x=3 works."
+      },
+      {
+        q: "40. What is the 8th term of the sequence: 1, 4, 7, 10, ...?",
+        options: ["a) 19", "b) 21", "c) 22", "d) 24"],
+        correct: "b",
+        explanation: "Each term increases by 3: 1+3×(8-1)=1+21=22."
+      },
+
+      // 41-50: Probability, data analysis, advanced word problems, number properties
+      {
+        q: "41. What is the probability of drawing a red card from a standard deck of 52 cards?",
+        options: ["a) 1/2", "b) 1/4", "c) 1/13", "d) 1/26"],
+        correct: "a",
+        explanation: "26 red cards out of 52; 26/52=1/2."
+      },
+      {
+        q: "42. If the mean of 6, 8, 12, and x is 10, what is x?",
+        options: ["a) 10", "b) 12", "c) 14", "d) 16"],
+        correct: "c",
+        explanation: "(6+8+12+x)/4=10→26+x=40→x=14."
+      },
+      {
+        q: "43. What is the median of 7, 2, 9, 5, 11?",
+        options: ["a) 5", "b) 7", "c) 9", "d) 11"],
+        correct: "b",
+        explanation: "Order: 2,5,7,9,11. Median is 7."
+      },
+      {
+        q: "44. If a fair die is rolled, what is the probability of rolling an even number?",
+        options: ["a) 1/2", "b) 1/3", "c) 1/4", "d) 1/6"],
+        correct: "a",
+        explanation: "3 even out of 6: 3/6=1/2."
+      },
+      {
+        q: "45. What is the greatest common factor (GCF) of 36 and 48?",
+        options: ["a) 6", "b) 8", "c) 12", "d) 24"],
+        correct: "c",
+        explanation: "36: 1,2,3,4,6,9,12,18,36; 48: 1,2,3,4,6,8,12,16,24,48; GCF=12."
+      },
+      {
+        q: "46. A bag contains 3 red, 5 blue, and 2 green marbles. What is the probability of drawing a blue marble?",
+        options: ["a) 1/2", "b) 1/3", "c) 1/5", "d) 1/10"],
+        correct: "b",
+        explanation: "Total: 10; blue: 5/10=1/2."
+      },
+      {
+        q: "47. What is the mode of the set {2, 3, 5, 5, 7, 8, 8, 8, 9}?",
+        options: ["a) 5", "b) 7", "c) 8", "d) 9"],
+        correct: "c",
+        explanation: "8 appears most often."
+      },
+      {
+        q: "48. The difference between the largest and smallest number in the set {4, 8, 15, 16, 23, 42} is:",
+        options: ["a) 38", "b) 39", "c) 40", "d) 42"],
+        correct: "a",
+        explanation: "42 - 4 = 38."
+      },
+      {
+        q: "49. If 2x + y = 10 and x - y = 2, what is the value of x?",
+        options: ["a) 2", "b) 3", "c) 4", "d) 5"],
+        correct: "d",
+        explanation: "Solve: x - y = 2 ⇒ y = x - 2; 2x + (x-2) = 10 ⇒ 3x = 12 ⇒ x = 4."
+      },
+      {
+        q: "50. What is the sum of the first 10 positive integers?",
+        options: ["a) 45", "b) 50", "c) 55", "d) 60"],
+        correct: "c",
+        explanation: "Sum = n(n+1)/2 = 10×11/2 = 55."
       }
     ];
+
+    // SHUFFLE OPTIONS ON LOAD
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
 
     // Render questions
     function renderMath() {
@@ -482,17 +466,29 @@
         qText.innerHTML = item.q;
         qDiv.appendChild(qText);
 
+        // Shuffle options
+        let optionObjs = item.options.map((opt, i) => ({
+          text: opt,
+          letter: "abcd"[i]
+        }));
+        shuffle(optionObjs);
+        // Find correct letter
+        let correctLetter = "";
+        optionObjs.forEach((opt, i) => {
+          if (opt.text.startsWith(item.correct + ")")) correctLetter = "abcd"[i];
+        });
+
         // Options
         const optionsDiv = document.createElement("div");
         optionsDiv.className = "options";
-        item.options.forEach((opt, i) => {
+        optionObjs.forEach((opt, i) => {
           const label = document.createElement("label");
           const radio = document.createElement("input");
           radio.type = "radio";
           radio.name = qid;
           radio.value = "abcd"[i];
           label.appendChild(radio);
-          label.appendChild(document.createTextNode(opt));
+          label.appendChild(document.createTextNode(opt.text));
           optionsDiv.appendChild(label);
         });
         qDiv.appendChild(optionsDiv);
@@ -503,15 +499,15 @@
         qDiv.appendChild(feedbackDiv);
 
         container.appendChild(qDiv);
+
+        // Save answer key for scoring
+        answerKey[qid] = {correct: correctLetter, explanation: item.explanation};
       });
     }
-    renderMath();
 
-    // Answer key
+    // Answer key for scoring
     const answerKey = {};
-    mathQuestions.forEach((item, idx) => {
-      answerKey["q" + (idx + 1)] = {correct: item.correct, explanation: item.explanation};
-    });
+    renderMath();
 
     // Instant feedback & scoring
     let score = 0, total = 50, answered = 0;
@@ -520,11 +516,8 @@
       const options = block.querySelectorAll('input[type="radio"]');
       options.forEach(function(option) {
         option.addEventListener('change', function() {
-          // Remove selected styles
           block.querySelectorAll('label').forEach(label => label.classList.remove('selected'));
-          // Highlight selected label
           option.parentElement.classList.add('selected');
-          // Feedback
           const feedbackDiv = block.querySelector('.feedback');
           const ans = answerKey[qid];
           if (!ans) return;
@@ -545,33 +538,16 @@
             }
           }
           feedbackDiv.style.display = "block";
-          // Lock in answer
           options.forEach(o => o.disabled = true);
-          // If all answered, show score
           if (answered === total) {
             document.getElementById("math-score-summary").style.display = "block";
             document.getElementById("score-text").innerHTML =
-              `<b>Your Math score: ${score} / ${total}</b><br>Scroll down for the writing prompt and section links.`;
+              `<b>Your Math score: ${score} / ${total}</b><br>Scroll down for section links.`;
             window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
           }
         });
       });
     });
-
-    // Simple essay grading tool
-    document.getElementById("essay-score-btn").onclick = function() {
-      const score = document.getElementById("essay-score-input").value;
-      const essay = document.getElementById("essay-text").value.trim();
-      let msg = "";
-      if (!essay) {
-        msg = "Please write your essay before scoring.";
-      } else if (!score || score < 1 || score > 5) {
-        msg = "Please enter a score from 1 to 5.";
-      } else {
-        msg = `Essay Score: <b>${score} / 5</b>`;
-      }
-      document.getElementById("essay-score-result").innerHTML = msg;
-    };
   </script>
 </body>
 </html>
