@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SSAT Realistic Reading Comprehension Sample</title>
+  <title>SSAT Middle Level Full Reading Practice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
@@ -10,7 +10,7 @@
       background: #f7fafb; color: #222f42; margin: 0; padding: 0;
     }
     .container {
-      max-width: 720px; margin: 2em auto; padding: 2em 1em;
+      max-width: 740px; margin: 2em auto; padding: 2em 1em;
       background: #fff; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.10);
     }
     h1, h2 {
@@ -20,10 +20,10 @@
       background: #f3f8fc;
       border-left: 4px solid #6ab7ff;
       padding: 1.3em 1em 1.1em 1em;
-      margin: 1.2em 0 2em 0;
+      margin: 2.2em 0 2em 0;
       border-radius: 6px;
-      font-size: 1.08em;
-      line-height: 1.58;
+      font-size: 1.065em;
+      line-height: 1.59;
     }
     .question-block {
       margin-bottom: 2em; padding-bottom: 1em;
@@ -57,6 +57,28 @@
     .feedback.incorrect {
       background: #ffeaea; color: #bc2d2d; border: 1px solid #ffb2b2; display: block;
     }
+    .score-summary {
+      text-align: center;
+      margin-top: 2em;
+      background: #f0f7fa;
+      padding: 1.5em 0.5em;
+      border-radius: 8px;
+      font-size: 1.13em;
+    }
+    .next-section-link {
+      display: inline-block;
+      margin: 2em auto 0 auto;
+      font-size: 1.18em;
+      background: #2e7dcc;
+      color: #fff;
+      padding: 0.7em 1.2em;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .next-section-link:hover {
+      background: #1b518e;
+    }
     @media (max-width: 650px) {
       .container { padding: 1em 0.2em; }
       h1, h2 { font-size: 1.15em; }
@@ -67,165 +89,572 @@
 </head>
 <body>
   <div class="container">
-    <h1>SSAT Reading Comprehension — Practice Passage</h1>
-    <div class="passage-block">
-      <b>Passage: The Mystery of the Lost Colony</b><br><br>
-      In the late 16th century, more than one hundred English settlers arrived on Roanoke Island, just off the coast of what is now North Carolina. Led by Governor John White, they hoped to establish the first permanent English colony in the New World. The settlers faced many difficulties, including food shortages, unfamiliar weather, and tense relationships with local Native American tribes.
-      <br><br>
-      After several months, Governor White returned to England to seek help and supplies for the struggling colony. His trip, however, was unexpectedly delayed for three years due to the outbreak of war between England and Spain. When White finally returned to Roanoke Island in 1590, he found the settlement completely deserted. The only clue left behind was the word “CROATOAN” carved into a wooden post.
-      <br><br>
-      The fate of the “Lost Colony” has remained one of America’s oldest mysteries. Some historians believe the settlers may have joined the nearby Croatoan tribe, while others think they perished from disease, starvation, or conflict. Despite centuries of searching, no conclusive evidence has ever been discovered to explain what happened to the colonists of Roanoke.
+    <h1>SSAT Middle Level Practice — Reading Comprehension</h1>
+    <div id="reading-content"></div>
+    <div class="score-summary" style="display:none;" id="reading-score-summary">
+      <div id="score-text"></div>
+      <a href="ssat-math.html" class="next-section-link">Next: Quantitative / Math Section</a>
     </div>
-    <div id="questions"></div>
   </div>
   <script>
-    // Questions for the passage
-    const questions = [
+    // 7 passages, 40 questions: Realistic SSAT style, variety of topics
+    const passages = [
+      // 1. Fiction
       {
-        q: "1. According to the passage, why did John White leave Roanoke Island?",
-        options: [
-          "a) To escape bad weather",
-          "b) To visit his family in England",
-          "c) To get help and supplies for the colony",
-          "d) To search for lost colonists"
-        ],
-        correct: "c",
-        explanation: "He left to seek help and supplies for the struggling colony."
+        title: "Passage 1: The Contest",
+        text: `Samantha’s heart pounded as she waited backstage. She clutched her violin, fingers trembling, knowing that beyond the heavy curtain sat a hundred watchful eyes. This was her first time performing in front of such a large audience, and the school’s annual music contest was the event everyone talked about each spring.<br><br>
+        As the announcer called her name, Samantha took a deep breath and walked onto the stage. The bright lights blinded her for a moment, but she focused on the music in her mind. She remembered her teacher’s advice: “Don’t try to be perfect. Just let the song tell its story.”<br><br>
+        As she played, the notes filled the auditorium, rising and falling like a gentle river. She forgot about the judges, the audience, and even the contest itself. When the last note faded, Samantha looked up to see her classmates cheering. Whether she won or lost, she knew she had shared something special.`,
+        questions: [
+          {
+            q: "1. How does Samantha feel before her performance?",
+            options: [
+              "a) Nervous",
+              "b) Angry",
+              "c) Bored",
+              "d) Confused"
+            ],
+            correct: "a",
+            explanation: "Her heart pounded and her fingers trembled, showing nervousness."
+          },
+          {
+            q: "2. What advice did Samantha’s teacher give her?",
+            options: [
+              "a) Try to be perfect.",
+              "b) Win at all costs.",
+              "c) Let the song tell its story.",
+              "d) Think about the audience."
+            ],
+            correct: "c",
+            explanation: "Her teacher told her to let the song tell its story."
+          },
+          {
+            q: "3. What happens as Samantha begins to play?",
+            options: [
+              "a) She forgets her music.",
+              "b) She becomes less worried.",
+              "c) The audience leaves.",
+              "d) The lights go out."
+            ],
+            correct: "b",
+            explanation: "She forgets about her worries and focuses on the music."
+          },
+          {
+            q: "4. At the end of the passage, how does Samantha feel?",
+            options: [
+              "a) Disappointed",
+              "b) Proud",
+              "c) Angry",
+              "d) Embarrassed"
+            ],
+            correct: "b",
+            explanation: "She feels proud to have shared her music, no matter the contest’s outcome."
+          },
+          {
+            q: "5. The main idea of the passage is:",
+            options: [
+              "a) Performing is always scary.",
+              "b) Winning is everything.",
+              "c) Sharing your talent is rewarding.",
+              "d) Teachers make the best musicians."
+            ],
+            correct: "c",
+            explanation: "The passage emphasizes the value of sharing talent, not just winning."
+          }
+        ]
       },
+      // 2. Nonfiction - Science
       {
-        q: "2. What delayed John White's return to Roanoke?",
-        options: [
-          "a) Storms at sea",
-          "b) A war between England and Spain",
-          "c) Illness",
-          "d) Lack of ships"
-        ],
-        correct: "b",
-        explanation: "His trip back was delayed by war between England and Spain."
+        title: "Passage 2: The Power of Photosynthesis",
+        text: `Every green plant on Earth depends on photosynthesis, a process that changes sunlight, water, and carbon dioxide into food. Inside each leaf, tiny structures called chloroplasts capture sunlight and use its energy to build sugars. These sugars are the plant’s food, which it uses to grow and thrive.<br><br>
+        Photosynthesis not only feeds the plant but also produces oxygen, a gas all animals, including humans, need to survive. In fact, the oxygen you breathe was likely made by a plant somewhere on Earth! Without photosynthesis, life as we know it would not exist.<br><br>
+        Scientists study photosynthesis not only to understand plants but also to learn how to harness the sun’s energy for human use. Solar panels, for example, are inspired by the way plants capture sunlight.`,
+        questions: [
+          {
+            q: "6. What do plants use chloroplasts for?",
+            options: [
+              "a) To absorb water",
+              "b) To capture sunlight",
+              "c) To breathe oxygen",
+              "d) To make soil"
+            ],
+            correct: "b",
+            explanation: "Chloroplasts capture sunlight for photosynthesis."
+          },
+          {
+            q: "7. What is a product of photosynthesis?",
+            options: [
+              "a) Carbon dioxide",
+              "b) Oxygen",
+              "c) Salt",
+              "d) Nitrogen"
+            ],
+            correct: "b",
+            explanation: "Photosynthesis produces oxygen."
+          },
+          {
+            q: "8. Why is photosynthesis important for humans?",
+            options: [
+              "a) It helps plants grow.",
+              "b) It gives us oxygen to breathe.",
+              "c) It creates rain.",
+              "d) It makes the soil rich."
+            ],
+            correct: "b",
+            explanation: "Humans need the oxygen produced by photosynthesis."
+          },
+          {
+            q: "9. What inspired the invention of solar panels?",
+            options: [
+              "a) Animal migration",
+              "b) The way plants capture sunlight",
+              "c) Water evaporation",
+              "d) Ocean currents"
+            ],
+            correct: "b",
+            explanation: "Solar panels are inspired by plants capturing sunlight."
+          },
+          {
+            q: "10. The author’s main purpose is to:",
+            options: [
+              "a) Describe why plants are green.",
+              "b) Explain how photosynthesis supports life.",
+              "c) Encourage people to eat more greens.",
+              "d) Show why solar panels are useful."
+            ],
+            correct: "b",
+            explanation: "The passage explains how photosynthesis supports life."
+          }
+        ]
       },
+      // 3. Fiction
       {
-        q: "3. Which of the following was the only clue found at the deserted settlement?",
-        options: [
-          "a) A map",
-          "b) A letter",
-          "c) The word 'CROATOAN' carved into a post",
-          "d) A piece of clothing"
-        ],
-        correct: "c",
-        explanation: "The only clue was the word 'CROATOAN' carved into a wooden post."
+        title: "Passage 3: The New Neighbor",
+        text: `When Anna’s family moved into the old house on Maple Street, she felt lonely and out of place. The neighborhood children already had their own games and stories, and Anna was too shy to join them. She spent her afternoons reading in the backyard under the big oak tree, wishing she had a friend.<br><br>
+        One afternoon, a red ball bounced over the fence, landing near Anna’s feet. A boy named Miguel climbed the fence and introduced himself, asking if she wanted to play. Nervous but excited, Anna said yes.<br><br>
+        As the days passed, Anna and Miguel became close friends. Anna discovered that sometimes, friendship begins with a simple hello.`,
+        questions: [
+          {
+            q: "11. How does Anna feel when she first moves to Maple Street?",
+            options: [
+              "a) Excited",
+              "b) Lonely",
+              "c) Angry",
+              "d) Confused"
+            ],
+            correct: "b",
+            explanation: "She feels lonely and out of place."
+          },
+          {
+            q: "12. What event leads to Anna meeting Miguel?",
+            options: [
+              "a) She knocks on his door.",
+              "b) He brings her cookies.",
+              "c) His ball lands in her yard.",
+              "d) Their parents introduce them."
+            ],
+            correct: "c",
+            explanation: "Miguel’s ball lands in Anna’s yard."
+          },
+          {
+            q: "13. What does Anna learn by the end of the passage?",
+            options: [
+              "a) To be careful with balls.",
+              "b) That friends are overrated.",
+              "c) That friendship can start with a simple hello.",
+              "d) That reading is boring."
+            ],
+            correct: "c",
+            explanation: "She learns friendship can begin with a simple hello."
+          },
+          {
+            q: "14. The passage is mainly about:",
+            options: [
+              "a) Making new friends",
+              "b) Moving to a new city",
+              "c) Playing ball",
+              "d) Reading books"
+            ],
+            correct: "a",
+            explanation: "The main theme is making new friends."
+          },
+          {
+            q: "15. Anna can best be described as:",
+            options: [
+              "a) Shy and thoughtful",
+              "b) Outgoing and loud",
+              "c) Unhappy and mean",
+              "d) Lazy and stubborn"
+            ],
+            correct: "a",
+            explanation: "She is shy but thoughtful."
+          }
+        ]
       },
+      // 4. Nonfiction - History
       {
-        q: "4. Which of the following best describes the main idea of the passage?",
-        options: [
-          "a) The difficulties of sailing across the Atlantic",
-          "b) The mystery of the Lost Colony of Roanoke",
-          "c) The lives of Native American tribes",
-          "d) The war between England and Spain"
-        ],
-        correct: "b",
-        explanation: "The passage is about the mystery of the Lost Colony of Roanoke."
+        title: "Passage 4: The Lost Colony of Roanoke",
+        text: `In 1587, more than one hundred English settlers established a colony on Roanoke Island, off the coast of present-day North Carolina. The leader, John White, returned to England for supplies, but due to war, he could not come back for three years. When he finally returned, the colony had vanished. The only clue was the word “CROATOAN” carved into a wooden post.<br><br>
+        Historians have debated the fate of the “Lost Colony” for centuries. Some believe the settlers joined the nearby Croatoan tribe, while others think they died from hunger or disease. Despite many theories and much searching, the mystery of Roanoke remains unsolved.`,
+        questions: [
+          {
+            q: "16. Why did John White return to England?",
+            options: [
+              "a) To visit his family",
+              "b) To seek supplies",
+              "c) To escape danger",
+              "d) To find gold"
+            ],
+            correct: "b",
+            explanation: "He returned to England for supplies."
+          },
+          {
+            q: "17. What prevented John White from returning quickly?",
+            options: [
+              "a) Illness",
+              "b) Bad weather",
+              "c) War",
+              "d) Pirates"
+            ],
+            correct: "c",
+            explanation: "War delayed his return."
+          },
+          {
+            q: "18. What was the only clue left at the Roanoke settlement?",
+            options: [
+              "a) A map",
+              "b) The word 'CROATOAN'",
+              "c) A ship's log",
+              "d) A journal"
+            ],
+            correct: "b",
+            explanation: "The word 'CROATOAN' was carved into a post."
+          },
+          {
+            q: "19. What is the main idea of the passage?",
+            options: [
+              "a) The history of England",
+              "b) The mystery of the Lost Colony of Roanoke",
+              "c) The discovery of North Carolina",
+              "d) The Croatoan tribe's customs"
+            ],
+            correct: "b",
+            explanation: "The passage is about the unsolved mystery of the Lost Colony."
+          },
+          {
+            q: "20. According to some historians, what might have happened to the settlers?",
+            options: [
+              "a) They became pirates.",
+              "b) They returned to England.",
+              "c) They joined a local tribe.",
+              "d) They built a city."
+            ],
+            correct: "c",
+            explanation: "Some believe the settlers joined the Croatoan tribe."
+          }
+        ]
       },
+      // 5. Nonfiction - Science
       {
-        q: "5. As used in the passage, the word 'deserted' most nearly means:",
-        options: [
-          "a) Full of sand",
-          "b) Empty or abandoned",
-          "c) Celebrated",
-          "d) Protected"
-        ],
-        correct: "b",
-        explanation: "'Deserted' means empty or abandoned."
+        title: "Passage 5: The Arctic Fox",
+        text: `The Arctic fox is a small mammal that lives in some of Earth’s coldest places. Its thick fur keeps it warm during the harsh winters, and in summer, its fur changes color from white to gray or brown. This helps the fox blend in with its surroundings year-round.<br><br>
+        The Arctic fox is an excellent hunter, feeding on lemmings, birds, and fish. When food is scarce, it will even eat berries and seaweed. Despite the challenging environment, the Arctic fox survives where few other animals can.`,
+        questions: [
+          {
+            q: "21. What is one way the Arctic fox survives in cold environments?",
+            options: [
+              "a) By swimming long distances",
+              "b) By hibernating",
+              "c) By having thick fur",
+              "d) By living in groups"
+            ],
+            correct: "c",
+            explanation: "Its thick fur keeps it warm."
+          },
+          {
+            q: "22. Why does the Arctic fox's fur change color?",
+            options: [
+              "a) To impress other foxes",
+              "b) To stay cool",
+              "c) To blend with the environment",
+              "d) To attract prey"
+            ],
+            correct: "c",
+            explanation: "Color change provides camouflage."
+          },
+          {
+            q: "23. Which of the following is NOT a food the Arctic fox eats?",
+            options: [
+              "a) Lemmings",
+              "b) Birds",
+              "c) Fish",
+              "d) Grass"
+            ],
+            correct: "d",
+            explanation: "Grass is not listed as a food."
+          },
+          {
+            q: "24. The phrase 'when food is scarce' means:",
+            options: [
+              "a) When there is plenty of food",
+              "b) When food is hard to find",
+              "c) When food is expensive",
+              "d) When food is delicious"
+            ],
+            correct: "b",
+            explanation: "'Scarce' means hard to find."
+          },
+          {
+            q: "25. What is the main idea of this passage?",
+            options: [
+              "a) Arctic foxes live in groups.",
+              "b) The Arctic fox is well adapted to its environment.",
+              "c) Arctic foxes eat only meat.",
+              "d) Arctic foxes are endangered."
+            ],
+            correct: "b",
+            explanation: "The passage focuses on adaptations for survival."
+          }
+        ]
       },
+      // 6. Nonfiction - Social Studies
       {
-        q: "6. Based on the passage, what is one theory about the fate of the colonists?",
-        options: [
-          "a) They built a new city in England.",
-          "b) They traveled to Spain.",
-          "c) They joined the Croatoan tribe.",
-          "d) They found gold and became rich."
-        ],
-        correct: "c",
-        explanation: "One theory is that they joined the Croatoan tribe."
+        title: "Passage 6: The Power of Storytelling",
+        text: `Long before people had books or computers, storytelling was the way history, lessons, and traditions were shared. Storytellers would gather listeners around a fire or in a village square and recount the adventures of ancestors, the origins of the world, or important events. These stories were passed down from generation to generation, helping people remember their past.<br><br>
+        Even today, stories are an important part of life. We tell stories to teach, to entertain, and to inspire. Whether in books, movies, or conversations, storytelling brings people together and helps us make sense of our world.`,
+        questions: [
+          {
+            q: "26. How did people share stories before books existed?",
+            options: [
+              "a) Through paintings",
+              "b) By acting plays",
+              "c) By telling them aloud",
+              "d) By writing on stone"
+            ],
+            correct: "c",
+            explanation: "They shared stories aloud."
+          },
+          {
+            q: "27. Why were stories important in ancient times?",
+            options: [
+              "a) They entertained only children.",
+              "b) They helped people remember history and traditions.",
+              "c) They taught people to build fires.",
+              "d) They replaced computers."
+            ],
+            correct: "b",
+            explanation: "Stories preserved history and traditions."
+          },
+          {
+            q: "28. How does the author feel about storytelling today?",
+            options: [
+              "a) It is only for children.",
+              "b) It is less important than before.",
+              "c) It still brings people together.",
+              "d) It is only found in books."
+            ],
+            correct: "c",
+            explanation: "Author says storytelling still brings people together."
+          },
+          {
+            q: "29. The phrase 'passed down from generation to generation' means:",
+            options: [
+              "a) Stories are told only once.",
+              "b) Stories are forgotten quickly.",
+              "c) Stories are shared over many years.",
+              "d) Stories are written in books."
+            ],
+            correct: "c",
+            explanation: "It means stories are shared over many years."
+          },
+          {
+            q: "30. What is the main idea of this passage?",
+            options: [
+              "a) Storytelling is old-fashioned.",
+              "b) Storytelling is an important human tradition.",
+              "c) Only elders can tell stories.",
+              "d) Computers are replacing stories."
+            ],
+            correct: "b",
+            explanation: "The passage focuses on the importance of storytelling."
+          }
+        ]
+      },
+      // 7. Nonfiction - Biography
+      {
+        title: "Passage 7: Jane Goodall and the Chimps",
+        text: `Jane Goodall was fascinated by animals as a child. When she grew up, she traveled from England to Africa to study chimpanzees in their natural habitat. For years, she observed their behavior, discovering that chimps use tools, show emotions, and have complex family groups.<br><br>
+        Goodall’s work changed the way scientists view animal intelligence. She wrote books, gave speeches, and encouraged people to protect chimpanzees and the forests where they live. Today, Jane Goodall is known around the world for her research and conservation efforts.`,
+        questions: [
+          {
+            q: "31. What did Jane Goodall study in Africa?",
+            options: [
+              "a) Elephants",
+              "b) Chimpanzees",
+              "c) Lions",
+              "d) Gorillas"
+            ],
+            correct: "b",
+            explanation: "She studied chimpanzees."
+          },
+          {
+            q: "32. What is one discovery Goodall made about chimps?",
+            options: [
+              "a) They can fly.",
+              "b) They use tools.",
+              "c) They are always quiet.",
+              "d) They live alone."
+            ],
+            correct: "b",
+            explanation: "She discovered that chimps use tools."
+          },
+          {
+            q: "33. How did Goodall’s research change science?",
+            options: [
+              "a) It made people afraid of chimps.",
+              "b) It led to the end of chimpanzee studies.",
+              "c) It changed how scientists view animal intelligence.",
+              "d) It discouraged travel to Africa."
+            ],
+            correct: "c",
+            explanation: "It changed how scientists view animal intelligence."
+          },
+          {
+            q: "34. What does the passage suggest about Goodall’s impact?",
+            options: [
+              "a) Few people know about her work.",
+              "b) Her work is only important in England.",
+              "c) She inspired others to protect animals and habitats.",
+              "d) She worked mostly with birds."
+            ],
+            correct: "c",
+            explanation: "She inspired conservation efforts worldwide."
+          },
+          {
+            q: "35. What is the main idea of this passage?",
+            options: [
+              "a) Chimpanzees are dangerous animals.",
+              "b) Jane Goodall is famous for her research and conservation.",
+              "c) Africa has many animals.",
+              "d) Conservation is a waste of time."
+            ],
+            correct: "b",
+            explanation: "The passage is about Goodall’s research and positive impact."
+          }
+        ]
       }
     ];
 
-    // Render questions (with answer checking & explanations)
-    function renderQuestions() {
-      const container = document.getElementById("questions");
-      questions.forEach((item, idx) => {
-        const qid = "q" + (idx + 1);
-        const qDiv = document.createElement("div");
-        qDiv.className = "question-block";
-        qDiv.id = qid;
-        // Question text
-        const qText = document.createElement("div");
-        qText.className = "question";
-        qText.innerHTML = item.q;
-        qDiv.appendChild(qText);
-        // Shuffle options
-        let optionObjs = item.options.map((opt, i) => ({
-          text: opt,
-          letter: "abcd"[i]
-        }));
-        // Fisher-Yates shuffle
-        for (let i = optionObjs.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [optionObjs[i], optionObjs[j]] = [optionObjs[j], optionObjs[i]];
-        }
-        // Find correct current letter
-        let correctLetter = "";
-        optionObjs.forEach((opt, i) => {
-          if (opt.text.startsWith(item.correct + ")")) correctLetter = "abcd"[i];
-        });
-        // Options
-        const optionsDiv = document.createElement("div");
-        optionsDiv.className = "options";
-        optionObjs.forEach((opt, i) => {
-          const label = document.createElement("label");
-          const radio = document.createElement("input");
-          radio.type = "radio";
-          radio.name = qid;
-          radio.value = "abcd"[i];
-          label.appendChild(radio);
-          label.appendChild(document.createTextNode(opt.text));
-          optionsDiv.appendChild(label);
-        });
-        qDiv.appendChild(optionsDiv);
-        // Feedback
-        const feedbackDiv = document.createElement("div");
-        feedbackDiv.className = "feedback";
-        qDiv.appendChild(feedbackDiv);
-        container.appendChild(qDiv);
+    // Render all passages and questions
+    let questionCount = 0;
+    let answerKey = {};
+    let totalQuestions = 0;
+    passages.forEach(p => totalQuestions += p.questions.length);
 
-        // Add answer key for this question
-        item._correctLetter = correctLetter;
-      });
+    function renderReading() {
+      const container = document.getElementById("reading-content");
+      passages.forEach((passage, pIdx) => {
+        // Passage
+        const passageDiv = document.createElement("div");
+        passageDiv.className = "passage-block";
+        passageDiv.innerHTML = `<b>${passage.title}</b><br><br>${passage.text}`;
+        container.appendChild(passageDiv);
 
-      // Feedback logic
-      document.querySelectorAll('.question-block').forEach(function(block, idx) {
-        const qid = block.id;
-        const options = block.querySelectorAll('input[type="radio"]');
-        options.forEach(function(option) {
-          option.addEventListener('change', function() {
-            block.querySelectorAll('label').forEach(label => label.classList.remove('selected'));
-            option.parentElement.classList.add('selected');
-            const feedbackDiv = block.querySelector('.feedback');
-            const ans = questions[idx];
-            if (!ans) return;
-            if (option.value === ans._correctLetter) {
-              feedbackDiv.textContent = "Correct! " + ans.explanation;
-              feedbackDiv.className = "feedback correct";
-            } else {
-              feedbackDiv.textContent = "Incorrect. " + ans.explanation;
-              feedbackDiv.className = "feedback incorrect";
-            }
-            feedbackDiv.style.display = "block";
-            options.forEach(o => o.disabled = true);
+        // Questions
+        passage.questions.forEach((item, qIdx) => {
+          questionCount++;
+          const qid = "q" + questionCount;
+          const qDiv = document.createElement("div");
+          qDiv.className = "question-block";
+          qDiv.id = qid;
+
+          // Question
+          const qText = document.createElement("div");
+          qText.className = "question";
+          qText.innerHTML = item.q;
+          qDiv.appendChild(qText);
+
+          // Options (shuffle)
+          let optionObjs = item.options.map((opt, i) => ({
+            text: opt,
+            letter: "abcd"[i]
+          }));
+          for (let i = optionObjs.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [optionObjs[i], optionObjs[j]] = [optionObjs[j], optionObjs[i]];
+          }
+          let correctLetter = "";
+          optionObjs.forEach((opt, i) => {
+            if (opt.text.startsWith(item.correct + ")")) correctLetter = "abcd"[i];
           });
+
+          // Options HTML
+          const optionsDiv = document.createElement("div");
+          optionsDiv.className = "options";
+          optionObjs.forEach((opt, i) => {
+            const label = document.createElement("label");
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = qid;
+            radio.value = "abcd"[i];
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(opt.text));
+            optionsDiv.appendChild(label);
+          });
+          qDiv.appendChild(optionsDiv);
+
+          // Feedback
+          const feedbackDiv = document.createElement("div");
+          feedbackDiv.className = "feedback";
+          qDiv.appendChild(feedbackDiv);
+
+          container.appendChild(qDiv);
+
+          answerKey[qid] = {correct: correctLetter, explanation: item.explanation};
         });
       });
     }
-    renderQuestions();
+    renderReading();
+
+    // Instant feedback & scoring
+    let score = 0, answered = 0;
+    document.querySelectorAll('.question-block').forEach(function(block) {
+      const qid = block.id;
+      const options = block.querySelectorAll('input[type="radio"]');
+      options.forEach(function(option) {
+        option.addEventListener('change', function() {
+          block.querySelectorAll('label').forEach(label => label.classList.remove('selected'));
+          option.parentElement.classList.add('selected');
+          const feedbackDiv = block.querySelector('.feedback');
+          const ans = answerKey[qid];
+          if (!ans) return;
+          if (option.value === ans.correct) {
+            feedbackDiv.textContent = "Correct! " + ans.explanation;
+            feedbackDiv.className = "feedback correct";
+            if (!block.dataset.answered) {
+              score++;
+              block.dataset.answered = "1";
+              answered++;
+            }
+          } else {
+            feedbackDiv.textContent = "Incorrect. " + ans.explanation;
+            feedbackDiv.className = "feedback incorrect";
+            if (!block.dataset.answered) {
+              block.dataset.answered = "1";
+              answered++;
+            }
+          }
+          feedbackDiv.style.display = "block";
+          options.forEach(o => o.disabled = true);
+          if (answered === totalQuestions) {
+            document.getElementById("reading-score-summary").style.display = "block";
+            document.getElementById("score-text").innerHTML =
+              `<b>Your Reading score: ${score} / ${totalQuestions}</b><br>Great work! Click below to continue to the Math section.`;
+            window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
