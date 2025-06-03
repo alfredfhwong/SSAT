@@ -2,29 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SSAT Middle Level Practice — Reading Comprehension</title>
+  <title>SSAT Realistic Reading Comprehension Sample</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
       font-family: "Segoe UI", Arial, sans-serif;
-      background: #f8fafc; color: #223044; margin: 0; padding: 0;
+      background: #f7fafb; color: #222f42; margin: 0; padding: 0;
     }
     .container {
-      max-width: 760px; margin: 2em auto; padding: 1.5em 1em;
+      max-width: 720px; margin: 2em auto; padding: 2em 1em;
       background: #fff; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.10);
     }
     h1, h2 {
       text-align: center; color: #194d7c;
     }
-    .instructions {
-      background: #e6f2fc; border-left: 4px solid #72b1e2;
-      padding: 1em; margin-bottom: 1.25em;
-    }
     .passage-block {
       background: #f3f8fc;
       border-left: 4px solid #6ab7ff;
       padding: 1.3em 1em 1.1em 1em;
-      margin-bottom: 1.8em;
+      margin: 1.2em 0 2em 0;
       border-radius: 6px;
       font-size: 1.08em;
       line-height: 1.58;
@@ -35,7 +31,6 @@
     }
     .question {
       font-weight: 550; margin-bottom: 0.5em;
-      margin-top: 0.7em;
     }
     .options label {
       display: block; background: #f0f7fa;
@@ -62,36 +57,6 @@
     .feedback.incorrect {
       background: #ffeaea; color: #bc2d2d; border: 1px solid #ffb2b2; display: block;
     }
-    .section-title {
-      margin-top: 2em;
-      color: #245d85;
-      border-bottom: 2px solid #d8e6f2;
-      padding-bottom: 0.4em;
-      margin-bottom: 1.2em;
-      font-size: 1.25em;
-    }
-    .next-section-link {
-      display: inline-block;
-      margin: 2em auto 0 auto;
-      font-size: 1.18em;
-      background: #2e7dcc;
-      color: #fff;
-      padding: 0.7em 1.2em;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .next-section-link:hover {
-      background: #1b518e;
-    }
-    .score-summary {
-      text-align: center;
-      margin-top: 2em;
-      background: #f0f7fa;
-      padding: 1.5em 0.5em;
-      border-radius: 8px;
-      font-size: 1.13em;
-    }
     @media (max-width: 650px) {
       .container { padding: 1em 0.2em; }
       h1, h2 { font-size: 1.15em; }
@@ -102,731 +67,165 @@
 </head>
 <body>
   <div class="container">
-    <h1>SSAT Middle Level Practice — Reading Comprehension</h1>
-    <div class="instructions">
-      <b>Directions:</b> Read each passage and answer the questions that follow. Click an answer for instant feedback and an explanation. At the end, you'll see your score and a link to the Math section.
+    <h1>SSAT Reading Comprehension — Practice Passage</h1>
+    <div class="passage-block">
+      <b>Passage: The Mystery of the Lost Colony</b><br><br>
+      In the late 16th century, more than one hundred English settlers arrived on Roanoke Island, just off the coast of what is now North Carolina. Led by Governor John White, they hoped to establish the first permanent English colony in the New World. The settlers faced many difficulties, including food shortages, unfamiliar weather, and tense relationships with local Native American tribes.
+      <br><br>
+      After several months, Governor White returned to England to seek help and supplies for the struggling colony. His trip, however, was unexpectedly delayed for three years due to the outbreak of war between England and Spain. When White finally returned to Roanoke Island in 1590, he found the settlement completely deserted. The only clue left behind was the word “CROATOAN” carved into a wooden post.
+      <br><br>
+      The fate of the “Lost Colony” has remained one of America’s oldest mysteries. Some historians believe the settlers may have joined the nearby Croatoan tribe, while others think they perished from disease, starvation, or conflict. Despite centuries of searching, no conclusive evidence has ever been discovered to explain what happened to the colonists of Roanoke.
     </div>
-
-    <div id="reading-content"></div>
-
-    <div class="score-summary" style="display:none;" id="reading-score-summary">
-      <div id="score-text"></div>
-      <a href="ssat-math.html" class="next-section-link">Next: Quantitative / Math Section</a>
-    </div>
+    <div id="questions"></div>
   </div>
   <script>
-    // Passages and Questions (50 total, 10 passages, 5 questions each)
-    const passages = [
+    // Questions for the passage
+    const questions = [
       {
-        text: `<b>Passage 1: The Ancient Library</b><br>
-  The Library of Alexandria, founded in the third century BCE, was one of the most famous libraries of the ancient world. Located in Egypt, it held countless scrolls containing the knowledge of many civilizations. Scholars from all over gathered there to study science, philosophy, and literature. Unfortunately, most of the library's collection was destroyed in a series of fires. The loss is still considered one of the greatest cultural tragedies in history.`,
-        questions: [
-          {
-            q: "1. Where was the Library of Alexandria located?",
-            options: ["a) Greece", "b) Italy", "c) Egypt", "d) India"],
-            correct: "c",
-            explanation: "The passage says it was in Egypt."
-          },
-          {
-            q: "2. What made the library famous?",
-            options: [
-              "a) Its tall building",
-              "b) Its large collection of scrolls",
-              "c) Its gardens",
-              "d) Its battle history"
-            ],
-            correct: "b",
-            explanation: "It was famous for its collection of scrolls containing knowledge."
-          },
-          {
-            q: "3. What happened to most of the library's collection?",
-            options: [
-              "a) It was moved to Rome",
-              "b) It was sold",
-              "c) It was destroyed in fires",
-              "d) It was given to students"
-            ],
-            correct: "c",
-            explanation: "The passage notes most was lost in fires."
-          },
-          {
-            q: "4. What did scholars do at the library?",
-            options: [
-              "a) Fought battles",
-              "b) Studied various subjects",
-              "c) Built monuments",
-              "d) Painted murals"
-            ],
-            correct: "b",
-            explanation: "Scholars studied science, philosophy, and literature."
-          },
-          {
-            q: "5. The author calls the loss of the library a tragedy because:",
-            options: [
-              "a) It was expensive",
-              "b) The building was beautiful",
-              "c) Much knowledge was lost",
-              "d) The city was abandoned"
-            ],
-            correct: "c",
-            explanation: "The loss of knowledge is described as a major tragedy."
-          }
-        ]
+        q: "1. According to the passage, why did John White leave Roanoke Island?",
+        options: [
+          "a) To escape bad weather",
+          "b) To visit his family in England",
+          "c) To get help and supplies for the colony",
+          "d) To search for lost colonists"
+        ],
+        correct: "c",
+        explanation: "He left to seek help and supplies for the struggling colony."
       },
       {
-        text: `<b>Passage 2: The Arctic Fox</b><br>
-  The Arctic fox is well adapted to its cold environment. Its thick white fur keeps it warm and helps it blend in with the snow. In summer, the fox's fur changes color to brown or gray, giving it camouflage among rocks and plants. The Arctic fox eats a variety of foods, including lemmings, birds, and berries. Despite harsh conditions, it survives where few other animals can.`,
-        questions: [
-          {
-            q: "6. Why does the Arctic fox's fur change color in summer?",
-            options: [
-              "a) To attract mates",
-              "b) To stay warm",
-              "c) For better camouflage",
-              "d) To shed old fur"
-            ],
-            correct: "c",
-            explanation: "The fur changes to help it blend in with its environment."
-          },
-          {
-            q: "7. What is a main topic of the passage?",
-            options: [
-              "a) The Arctic fox's habitat",
-              "b) The diet of lemmings",
-              "c) How Arctic foxes survive in the cold",
-              "d) Types of snow"
-            ],
-            correct: "c",
-            explanation: "The passage focuses on how the Arctic fox survives."
-          },
-          {
-            q: "8. What is one thing the Arctic fox eats?",
-            options: [
-              "a) Fish",
-              "b) Berries",
-              "c) Grass",
-              "d) Seals"
-            ],
-            correct: "b",
-            explanation: "The passage says the fox eats berries among other things."
-          },
-          {
-            q: "9. The word 'camouflage' in the passage means:",
-            options: [
-              "a) Sleeping",
-              "b) Hiding by blending in",
-              "c) Running quickly",
-              "d) Barking loudly"
-            ],
-            correct: "b",
-            explanation: "Camouflage is blending in with the surroundings."
-          },
-          {
-            q: "10. Which of the following best describes the Arctic fox?",
-            options: [
-              "a) Unable to survive harsh weather",
-              "b) Well adapted to its environment",
-              "c) Eats only plants",
-              "d) Has fur that stays the same color year-round"
-            ],
-            correct: "b",
-            explanation: "The passage describes its adaptations to the cold."
-          }
-        ]
+        q: "2. What delayed John White's return to Roanoke?",
+        options: [
+          "a) Storms at sea",
+          "b) A war between England and Spain",
+          "c) Illness",
+          "d) Lack of ships"
+        ],
+        correct: "b",
+        explanation: "His trip back was delayed by war between England and Spain."
       },
       {
-        text: `<b>Passage 3: The Importance of Bees</b><br>
-  Bees are vital to many ecosystems because they pollinate plants. When a bee collects nectar, pollen sticks to its body and is transferred to other flowers, allowing those plants to produce fruit and seeds. Many of the foods people eat, such as apples and almonds, rely on bees for pollination. Unfortunately, bee populations are declining due to habitat loss, pesticides, and disease. Protecting bees is important for both nature and people.`,
-        questions: [
-          {
-            q: "11. What is the main reason bees are important?",
-            options: [
-              "a) They produce honey",
-              "b) They pollinate plants",
-              "c) They are pretty",
-              "d) They make noise"
-            ],
-            correct: "b",
-            explanation: "The passage emphasizes their role in pollination."
-          },
-          {
-            q: "12. What happens when bees pollinate plants?",
-            options: [
-              "a) Plants produce fruit and seeds",
-              "b) Plants die",
-              "c) Bees lose their wings",
-              "d) Flowers change color"
-            ],
-            correct: "a",
-            explanation: "Pollination allows plants to produce fruit and seeds."
-          },
-          {
-            q: "13. What is one reason for the decline in bee populations?",
-            options: [
-              "a) Too many flowers",
-              "b) Habitat loss",
-              "c) Increased honey production",
-              "d) Cold weather"
-            ],
-            correct: "b",
-            explanation: "Habitat loss is listed as a reason for bee decline."
-          },
-          {
-            q: "14. The word 'vital' in the passage means:",
-            options: [
-              "a) Unimportant",
-              "b) Dangerous",
-              "c) Essential",
-              "d) Rare"
-            ],
-            correct: "c",
-            explanation: "'Vital' means essential or very important."
-          },
-          {
-            q: "15. Why is protecting bees important for people?",
-            options: [
-              "a) People like insects",
-              "b) Bees are the only pollinators",
-              "c) Many foods depend on bees",
-              "d) Bees make loud noises"
-            ],
-            correct: "c",
-            explanation: "Many foods people eat depend on bee pollination."
-          }
-        ]
+        q: "3. Which of the following was the only clue found at the deserted settlement?",
+        options: [
+          "a) A map",
+          "b) A letter",
+          "c) The word 'CROATOAN' carved into a post",
+          "d) A piece of clothing"
+        ],
+        correct: "c",
+        explanation: "The only clue was the word 'CROATOAN' carved into a wooden post."
       },
       {
-        text: `<b>Passage 4: The First Olympic Games</b><br>
-  The first Olympic Games were held in Olympia, Greece, in 776 BCE. Only men were allowed to compete, and the events included running, wrestling, and discus throwing. Winners received olive wreaths and were celebrated as heroes. Today, the Olympics include athletes from all over the world and many more sports. The spirit of friendly competition has remained the same for thousands of years.`,
-        questions: [
-          {
-            q: "16. Where were the first Olympic Games held?",
-            options: [
-              "a) Rome",
-              "b) Olympia, Greece",
-              "c) Athens",
-              "d) Egypt"
-            ],
-            correct: "b",
-            explanation: "The games were held in Olympia, Greece."
-          },
-          {
-            q: "17. What prize did winners receive in the first Olympics?",
-            options: [
-              "a) Gold medals",
-              "b) Money",
-              "c) Olive wreaths",
-              "d) Trophies"
-            ],
-            correct: "c",
-            explanation: "Winners received olive wreaths."
-          },
-          {
-            q: "18. Which sport was NOT in the first Olympics?",
-            options: [
-              "a) Running",
-              "b) Wrestling",
-              "c) Discus throwing",
-              "d) Swimming"
-            ],
-            correct: "d",
-            explanation: "Swimming was not mentioned as an event."
-          },
-          {
-            q: "19. Which of the following is true about today's Olympics?",
-            options: [
-              "a) Only men compete",
-              "b) Fewer sports are included",
-              "c) Athletes come from many countries",
-              "d) Prizes are olive wreaths"
-            ],
-            correct: "c",
-            explanation: "The passage says athletes from all over the world compete today."
-          },
-          {
-            q: "20. The main idea of the passage is:",
-            options: [
-              "a) How to win an olive wreath",
-              "b) The history and spirit of the Olympics",
-              "c) The rules of wrestling",
-              "d) How to throw a discus"
-            ],
-            correct: "b",
-            explanation: "It discusses both the history and the spirit of the Olympics."
-          }
-        ]
+        q: "4. Which of the following best describes the main idea of the passage?",
+        options: [
+          "a) The difficulties of sailing across the Atlantic",
+          "b) The mystery of the Lost Colony of Roanoke",
+          "c) The lives of Native American tribes",
+          "d) The war between England and Spain"
+        ],
+        correct: "b",
+        explanation: "The passage is about the mystery of the Lost Colony of Roanoke."
       },
       {
-        text: `<b>Passage 5: A Surprising Invention</b><br>
-  In 1945, Percy Spencer was working with radar equipment when he noticed a chocolate bar in his pocket had melted. Curious, he experimented further and discovered that microwaves could cook food quickly. This led to the invention of the microwave oven, which has become a common kitchen appliance. Today, millions of people use microwaves to heat and cook food in minutes.`,
-        questions: [
-          {
-            q: "21. What was Percy Spencer working with when he made his discovery?",
-            options: [
-              "a) A refrigerator",
-              "b) Radar equipment",
-              "c) Television",
-              "d) A stove"
-            ],
-            correct: "b",
-            explanation: "He was working with radar equipment."
-          },
-          {
-            q: "22. What happened to the chocolate bar in Spencer's pocket?",
-            options: [
-              "a) It melted",
-              "b) It froze",
-              "c) It disappeared",
-              "d) It exploded"
-            ],
-            correct: "a",
-            explanation: "The chocolate bar melted."
-          },
-          {
-            q: "23. What did Spencer invent as a result of his experiments?",
-            options: [
-              "a) The television",
-              "b) The refrigerator",
-              "c) The microwave oven",
-              "d) The washing machine"
-            ],
-            correct: "c",
-            explanation: "He invented the microwave oven."
-          },
-          {
-            q: "24. What is one reason the microwave became popular?",
-            options: [
-              "a) It was expensive",
-              "b) It could cook food quickly",
-              "c) It was invented in 1945",
-              "d) It needed radar equipment"
-            ],
-            correct: "b",
-            explanation: "It could cook food quickly."
-          },
-          {
-            q: "25. Which best describes Spencer's attitude after the chocolate bar melted?",
-            options: [
-              "a) Angry",
-              "b) Curious",
-              "c) Worried",
-              "d) Embarrassed"
-            ],
-            correct: "b",
-            explanation: "He was curious and experimented further."
-          }
-        ]
+        q: "5. As used in the passage, the word 'deserted' most nearly means:",
+        options: [
+          "a) Full of sand",
+          "b) Empty or abandoned",
+          "c) Celebrated",
+          "d) Protected"
+        ],
+        correct: "b",
+        explanation: "'Deserted' means empty or abandoned."
       },
       {
-        text: `<b>Passage 6: Jane Goodall and the Chimps</b><br>
-  Jane Goodall traveled to Africa to study chimpanzees in their natural habitat. She spent years observing their behavior, discovering that chimps use tools, communicate, and have complex social lives. Goodall's work changed how scientists view animals and inspired efforts to protect chimpanzees and their environment.`,
-        questions: [
-          {
-            q: "26. What did Jane Goodall study?",
-            options: [
-              "a) Lions",
-              "b) Chimpanzees",
-              "c) Elephants",
-              "d) Gorillas"
-            ],
-            correct: "b",
-            explanation: "She studied chimpanzees."
-          },
-          {
-            q: "27. Where did Goodall study these animals?",
-            options: [
-              "a) In a zoo",
-              "b) In a laboratory",
-              "c) In Africa",
-              "d) In Asia"
-            ],
-            correct: "c",
-            explanation: "She went to Africa to study them."
-          },
-          {
-            q: "28. Which is NOT something Goodall learned about chimps?",
-            options: [
-              "a) They use tools",
-              "b) They have social lives",
-              "c) They can fly",
-              "d) They communicate"
-            ],
-            correct: "c",
-            explanation: "Chimps do not fly."
-          },
-          {
-            q: "29. How did Goodall's work affect other scientists?",
-            options: [
-              "a) Made them less interested in animals",
-              "b) Changed their views of animals",
-              "c) Led them to study plants",
-              "d) Encouraged them to avoid Africa"
-            ],
-            correct: "b",
-            explanation: "Her work changed how scientists view animals."
-          },
-          {
-            q: "30. What did Goodall's research help inspire?",
-            options: [
-              "a) Building zoos",
-              "b) Protecting chimps and their environment",
-              "c) Traveling to space",
-              "d) Teaching chimps to dance"
-            ],
-            correct: "b",
-            explanation: "It inspired protection of chimps and their habitat."
-          }
-        ]
-      },
-      {
-        text: `<b>Passage 7: The Water Cycle</b><br>
-  Water on Earth is constantly moving through a process called the water cycle. The sun heats water in oceans, lakes, and rivers, causing it to evaporate and turn into water vapor. This vapor rises into the air, cools, and forms clouds. Eventually, the water falls back to the surface as precipitation, such as rain or snow, and the cycle begins again.`,
-        questions: [
-          {
-            q: "31. What causes water to evaporate?",
-            options: [
-              "a) The moon",
-              "b) The sun's heat",
-              "c) Wind",
-              "d) Snow"
-            ],
-            correct: "b",
-            explanation: "The sun heats water, causing it to evaporate."
-          },
-          {
-            q: "32. What happens to water vapor as it rises?",
-            options: [
-              "a) It freezes",
-              "b) It forms clouds",
-              "c) It disappears",
-              "d) It sinks"
-            ],
-            correct: "b",
-            explanation: "Vapor rises, cools, and forms clouds."
-          },
-          {
-            q: "33. What is precipitation?",
-            options: [
-              "a) Water turning into vapor",
-              "b) Water falling as rain or snow",
-              "c) Water flowing in rivers",
-              "d) Water boiling"
-            ],
-            correct: "b",
-            explanation: "Precipitation is water falling as rain or snow."
-          },
-          {
-            q: "34. The water cycle is best described as:",
-            options: [
-              "a) A one-time event",
-              "b) A repeating process",
-              "c) A type of storm",
-              "d) A chemical reaction"
-            ],
-            correct: "b",
-            explanation: "It is a repeating process."
-          },
-          {
-            q: "35. What is the main idea of this passage?",
-            options: [
-              "a) How clouds are formed",
-              "b) The movement of water on Earth",
-              "c) The importance of rivers",
-              "d) How to make rain"
-            ],
-            correct: "b",
-            explanation: "It describes the movement of water (the water cycle)."
-          }
-        ]
-      },
-      {
-        text: `<b>Passage 8: The Power of Storytelling</b><br>
-  For thousands of years, people have told stories to entertain, teach, and bring communities together. Before writing was common, stories were shared aloud from one generation to the next. Today, stories are found in books, movies, and even video games. No matter the form, storytelling helps people understand the world and share experiences.`,
-        questions: [
-          {
-            q: "36. What is the main purpose of storytelling according to the passage?",
-            options: [
-              "a) To make people laugh",
-              "b) To share and understand experiences",
-              "c) To sell books",
-              "d) To teach people to write"
-            ],
-            correct: "b",
-            explanation: "The passage states storytelling helps people understand and share experiences."
-          },
-          {
-            q: "37. How were stories shared before writing was common?",
-            options: [
-              "a) Through books",
-              "b) On stone tablets",
-              "c) Aloud from generation to generation",
-              "d) In newspapers"
-            ],
-            correct: "c",
-            explanation: "Stories were shared aloud from one generation to the next."
-          },
-          {
-            q: "38. Which is NOT a modern form of storytelling mentioned in the passage?",
-            options: [
-              "a) Books",
-              "b) Movies",
-              "c) Video games",
-              "d) Paintings"
-            ],
-            correct: "d",
-            explanation: "Paintings are not mentioned."
-          },
-          {
-            q: "39. According to the passage, storytelling brings people:",
-            options: [
-              "a) Together",
-              "b) Apart",
-              "c) Fortune",
-              "d) Trouble"
-            ],
-            correct: "a",
-            explanation: "It brings communities together."
-          },
-          {
-            q: "40. The word 'generation' in the passage means:",
-            options: [
-              "a) A group of people born around the same time",
-              "b) A type of story",
-              "c) A kind of book",
-              "d) A new invention"
-            ],
-            correct: "a",
-            explanation: "'Generation' refers to people born around the same time."
-          }
-        ]
-      },
-      {
-        text: `<b>Passage 9: The Space Race</b><br>
-  In the 20th century, the United States and the Soviet Union competed in what became known as the Space Race. Both nations wanted to be the first to reach important milestones in space exploration. The Soviets launched the first satellite, Sputnik, in 1957. In 1969, the United States landed astronauts on the moon. The Space Race led to many new technologies and inspired generations to look to the stars.`,
-        questions: [
-          {
-            q: "41. What was the Space Race?",
-            options: [
-              "a) A car competition",
-              "b) A rivalry in space exploration",
-              "c) A running event",
-              "d) A type of video game"
-            ],
-            correct: "b",
-            explanation: "It was a competition in space exploration."
-          },
-          {
-            q: "42. Who launched the first satellite?",
-            options: [
-              "a) United States",
-              "b) Soviet Union",
-              "c) China",
-              "d) Japan"
-            ],
-            correct: "b",
-            explanation: "The Soviet Union launched Sputnik first."
-          },
-          {
-            q: "43. What major event happened in 1969?",
-            options: [
-              "a) Sputnik launch",
-              "b) First car in space",
-              "c) Moon landing by the United States",
-              "d) First space station built"
-            ],
-            correct: "c",
-            explanation: "The US landed astronauts on the moon in 1969."
-          },
-          {
-            q: "44. What is one result of the Space Race?",
-            options: [
-              "a) Fewer people interested in science",
-              "b) New technologies were developed",
-              "c) The end of space exploration",
-              "d) The moon was destroyed"
-            ],
-            correct: "b",
-            explanation: "It led to many new technologies."
-          },
-          {
-            q: "45. The Space Race encouraged people to:",
-            options: [
-              "a) Stay on Earth",
-              "b) Avoid science",
-              "c) Look to the stars and dream",
-              "d) Travel by car"
-            ],
-            correct: "c",
-            explanation: "It inspired generations to look to the stars."
-          }
-        ]
-      },
-      {
-        text: `<b>Passage 10: The Value of Failure</b><br>
-  Failure is often seen as something negative, but it can be a valuable teacher. When people fail, they learn what doesn’t work and gain new understanding. Many inventors and leaders failed before they succeeded. The key is to learn from mistakes and try again. With effort and determination, failure can lead to future success.`,
-        questions: [
-          {
-            q: "46. How does the author describe failure?",
-            options: [
-              "a) As always bad",
-              "b) As a valuable teacher",
-              "c) As easy to avoid",
-              "d) As the end of the road"
-            ],
-            correct: "b",
-            explanation: "The author calls failure a valuable teacher."
-          },
-          {
-            q: "47. What do people gain from failure?",
-            options: [
-              "a) Money",
-              "b) Understanding",
-              "c) Fame",
-              "d) Anger"
-            ],
-            correct: "b",
-            explanation: "Failure brings new understanding."
-          },
-          {
-            q: "48. What is the key to turning failure into success?",
-            options: [
-              "a) Ignore mistakes",
-              "b) Try again and learn",
-              "c) Blame others",
-              "d) Quit quickly"
-            ],
-            correct: "b",
-            explanation: "Learning from mistakes and trying again is key."
-          },
-          {
-            q: "49. According to the author, who has failed before succeeding?",
-            options: [
-              "a) Only students",
-              "b) Only athletes",
-              "c) Many inventors and leaders",
-              "d) Only teachers"
-            ],
-            correct: "c",
-            explanation: "Many inventors and leaders failed before they succeeded."
-          },
-          {
-            q: "50. The main idea of this passage is:",
-            options: [
-              "a) Failure is always negative",
-              "b) Failure can help people succeed",
-              "c) Only famous people fail",
-              "d) Failure is rare"
-            ],
-            correct: "b",
-            explanation: "The passage argues failure can lead to future success."
-          }
-        ]
+        q: "6. Based on the passage, what is one theory about the fate of the colonists?",
+        options: [
+          "a) They built a new city in England.",
+          "b) They traveled to Spain.",
+          "c) They joined the Croatoan tribe.",
+          "d) They found gold and became rich."
+        ],
+        correct: "c",
+        explanation: "One theory is that they joined the Croatoan tribe."
       }
     ];
 
-    // Render all passages and questions
-    let questionCount = 0;
-    let answerKey = {};
-    let passageIdx = 0;
-    let questionIdMap = {};
+    // Render questions (with answer checking & explanations)
+    function renderQuestions() {
+      const container = document.getElementById("questions");
+      questions.forEach((item, idx) => {
+        const qid = "q" + (idx + 1);
+        const qDiv = document.createElement("div");
+        qDiv.className = "question-block";
+        qDiv.id = qid;
+        // Question text
+        const qText = document.createElement("div");
+        qText.className = "question";
+        qText.innerHTML = item.q;
+        qDiv.appendChild(qText);
+        // Shuffle options
+        let optionObjs = item.options.map((opt, i) => ({
+          text: opt,
+          letter: "abcd"[i]
+        }));
+        // Fisher-Yates shuffle
+        for (let i = optionObjs.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [optionObjs[i], optionObjs[j]] = [optionObjs[j], optionObjs[i]];
+        }
+        // Find correct current letter
+        let correctLetter = "";
+        optionObjs.forEach((opt, i) => {
+          if (opt.text.startsWith(item.correct + ")")) correctLetter = "abcd"[i];
+        });
+        // Options
+        const optionsDiv = document.createElement("div");
+        optionsDiv.className = "options";
+        optionObjs.forEach((opt, i) => {
+          const label = document.createElement("label");
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = qid;
+          radio.value = "abcd"[i];
+          label.appendChild(radio);
+          label.appendChild(document.createTextNode(opt.text));
+          optionsDiv.appendChild(label);
+        });
+        qDiv.appendChild(optionsDiv);
+        // Feedback
+        const feedbackDiv = document.createElement("div");
+        feedbackDiv.className = "feedback";
+        qDiv.appendChild(feedbackDiv);
+        container.appendChild(qDiv);
 
-    function renderReading() {
-      const container = document.getElementById("reading-content");
-      passages.forEach((passage, pIdx) => {
-        // Passage
-        const passageDiv = document.createElement("div");
-        passageDiv.className = "passage-block";
-        passageDiv.innerHTML = passage.text;
-        container.appendChild(passageDiv);
+        // Add answer key for this question
+        item._correctLetter = correctLetter;
+      });
 
-        // Questions
-        passage.questions.forEach((item, qIdx) => {
-          questionCount++;
-          const qid = "q" + questionCount;
-          questionIdMap[qid] = {p: pIdx, i: qIdx};
-          const qDiv = document.createElement("div");
-          qDiv.className = "question-block";
-          qDiv.id = qid;
-
-          // Question
-          const qText = document.createElement("div");
-          qText.className = "question";
-          qText.innerHTML = item.q;
-          qDiv.appendChild(qText);
-
-          // Options
-          const optionsDiv = document.createElement("div");
-          optionsDiv.className = "options";
-          item.options.forEach((opt, i) => {
-            const label = document.createElement("label");
-            const radio = document.createElement("input");
-            radio.type = "radio";
-            radio.name = qid;
-            radio.value = "abcd"[i];
-            label.appendChild(radio);
-            label.appendChild(document.createTextNode(opt));
-            optionsDiv.appendChild(label);
+      // Feedback logic
+      document.querySelectorAll('.question-block').forEach(function(block, idx) {
+        const qid = block.id;
+        const options = block.querySelectorAll('input[type="radio"]');
+        options.forEach(function(option) {
+          option.addEventListener('change', function() {
+            block.querySelectorAll('label').forEach(label => label.classList.remove('selected'));
+            option.parentElement.classList.add('selected');
+            const feedbackDiv = block.querySelector('.feedback');
+            const ans = questions[idx];
+            if (!ans) return;
+            if (option.value === ans._correctLetter) {
+              feedbackDiv.textContent = "Correct! " + ans.explanation;
+              feedbackDiv.className = "feedback correct";
+            } else {
+              feedbackDiv.textContent = "Incorrect. " + ans.explanation;
+              feedbackDiv.className = "feedback incorrect";
+            }
+            feedbackDiv.style.display = "block";
+            options.forEach(o => o.disabled = true);
           });
-          qDiv.appendChild(optionsDiv);
-
-          // Feedback
-          const feedbackDiv = document.createElement("div");
-          feedbackDiv.className = "feedback";
-          qDiv.appendChild(feedbackDiv);
-
-          container.appendChild(qDiv);
-
-          // Add to answer key
-          answerKey[qid] = {correct: item.correct, explanation: item.explanation};
         });
       });
     }
-    renderReading();
-
-    // Instant feedback & scoring
-    let score = 0, total = 50, answered = 0;
-    document.querySelectorAll('.question-block').forEach(function(block) {
-      const qid = block.id;
-      const options = block.querySelectorAll('input[type="radio"]');
-      options.forEach(function(option) {
-        option.addEventListener('change', function() {
-          // Remove selected styles
-          block.querySelectorAll('label').forEach(label => label.classList.remove('selected'));
-          // Highlight selected label
-          option.parentElement.classList.add('selected');
-          // Feedback
-          const feedbackDiv = block.querySelector('.feedback');
-          const ans = answerKey[qid];
-          if (!ans) return;
-          if (option.value === ans.correct) {
-            feedbackDiv.textContent = "Correct! " + ans.explanation;
-            feedbackDiv.className = "feedback correct";
-            if (!block.dataset.answered) {
-              score++;
-              block.dataset.answered = "1";
-              answered++;
-            }
-          } else {
-            feedbackDiv.textContent = "Incorrect. " + ans.explanation;
-            feedbackDiv.className = "feedback incorrect";
-            if (!block.dataset.answered) {
-              block.dataset.answered = "1";
-              answered++;
-            }
-          }
-          feedbackDiv.style.display = "block";
-          // Lock in answer
-          options.forEach(o => o.disabled = true);
-          // If all answered, show score
-          if (answered === total) {
-            document.getElementById("reading-score-summary").style.display = "block";
-            document.getElementById("score-text").innerHTML =
-              `<b>Your score: ${score} / ${total}</b><br>Great work! Click below to continue to the Math section.`;
-            window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
-          }
-        });
-      });
-    });
+    renderQuestions();
   </script>
 </body>
 </html>
