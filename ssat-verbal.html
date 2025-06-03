@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SSAT Middle Level Practice — Verbal Section (Improved Analogies)</title>
+  <title>SSAT Verbal Practice — 25 Synonyms, 25 Unambiguous Analogies</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     html, body {
@@ -91,7 +91,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>SSAT Middle Level Practice — Verbal Section</h1>
+    <h1>SSAT Verbal Practice — 25 Synonyms, 25 Unambiguous Analogies</h1>
     <div class="instructions">
       <b>Directions:</b> Choose the best answer for each question. Click an answer to see if it is correct and get an explanation. At the end, you'll see your total score and a link to Reading Comprehension.
     </div>
@@ -115,190 +115,214 @@
       return array;
     }
 
-    // Synonyms: Same as before
+    // 25 Synonyms — all with a single best answer
     const synonyms = [
-      { q: "1. SYNONYM: <b>OBSCURE</b>", options: ["Hidden", "Dangerous", "Common", "Bright"], answer: "Hidden", explanation: "'Obscure' means hidden or not easily seen." },
-      { q: "2. SYNONYM: <b>ALTRUISTIC</b>", options: ["Selfless", "Cruel", "Courageous", "Greedy"], answer: "Selfless", explanation: "'Altruistic' means selfless, concerned for others." },
-      { q: "3. SYNONYM: <b>VENERATE</b>", options: ["Respect", "Ignore", "Examine", "Provoke"], answer: "Respect", explanation: "'Venerate' means to respect deeply." },
-      { q: "4. SYNONYM: <b>PRECARIOUS</b>", options: ["Risky", "Clear", "Stable", "Pleasant"], answer: "Risky", explanation: "'Precarious' means risky or dangerous." },
-      { q: "5. SYNONYM: <b>DISDAIN</b>", options: ["Scorn", "Admire", "Accept", "Envy"], answer: "Scorn", explanation: "'Disdain' means scorn or contempt." },
-      { q: "6. SYNONYM: <b>IMMINENT</b>", options: ["Approaching", "Distant", "Unlikely", "Unclear"], answer: "Approaching", explanation: "'Imminent' means about to happen." },
-      { q: "7. SYNONYM: <b>CONCISE</b>", options: ["Brief", "Detailed", "Confusing", "Expensive"], answer: "Brief", explanation: "'Concise' means brief and to the point." },
-      { q: "8. SYNONYM: <b>APPEASE</b>", options: ["Soothe", "Excite", "Annoy", "Ignore"], answer: "Soothe", explanation: "'Appease' means to calm or soothe." },
-      { q: "9. SYNONYM: <b>INADVERTENT</b>", options: ["Unintentional", "Careful", "Deliberate", "Quick"], answer: "Unintentional", explanation: "'Inadvertent' means unintentional or accidental." },
-      { q: "10. SYNONYM: <b>METICULOUS</b>", options: ["Careful", "Careless", "Rushed", "Boring"], answer: "Careful", explanation: "'Meticulous' means very careful and precise." },
-      { q: "11. SYNONYM: <b>AMELIORATE</b>", options: ["Improve", "Destroy", "Watch", "Ignore"], answer: "Improve", explanation: "'Ameliorate' means to make better." },
-      { q: "12. SYNONYM: <b>PROLIFIC</b>", options: ["Productive", "Expensive", "Lazy", "Inactive"], answer: "Productive", explanation: "'Prolific' means highly productive." },
-      { q: "13. SYNONYM: <b>INDIGENOUS</b>", options: ["Native", "Foreign", "Artificial", "Generous"], answer: "Native", explanation: "'Indigenous' means native to a place." },
-      { q: "14. SYNONYM: <b>PLAUDIT</b>", options: ["Praise", "Complaint", "Silence", "Argument"], answer: "Praise", explanation: "'Plaudit' means praise or applause." },
-      { q: "15. SYNONYM: <b>OSTENTATIOUS</b>", options: ["Showy", "Modest", "Honest", "Shy"], answer: "Showy", explanation: "'Ostentatious' means showy or flashy." },
-      { q: "16. SYNONYM: <b>TRANQUIL</b>", options: ["Calm", "Busy", "Loud", "Rough"], answer: "Calm", explanation: "'Tranquil' means calm and peaceful." },
-      { q: "17. SYNONYM: <b>DETRIMENTAL</b>", options: ["Harmful", "Helpful", "Unusual", "Predictable"], answer: "Harmful", explanation: "'Detrimental' means harmful." },
-      { q: "18. SYNONYM: <b>INCREDULOUS</b>", options: ["Skeptical", "Trusting", "Generous", "Hopeful"], answer: "Skeptical", explanation: "'Incredulous' means skeptical or disbelieving." },
-      { q: "19. SYNONYM: <b>SUPPLANT</b>", options: ["Replace", "Support", "Explain", "Plant"], answer: "Replace", explanation: "'Supplant' means to replace." },
-      { q: "20. SYNONYM: <b>DERIDE</b>", options: ["Mock", "Encourage", "Support", "Avoid"], answer: "Mock", explanation: "'Deride' means to mock or ridicule." },
-      { q: "21. SYNONYM: <b>ABATE</b>", options: ["Decrease", "Increase", "Argue", "Create"], answer: "Decrease", explanation: "'Abate' means to decrease or lessen." },
-      { q: "22. SYNONYM: <b>INCITE</b>", options: ["Provoke", "Calm", "Ignore", "Prevent"], answer: "Provoke", explanation: "'Incite' means to provoke or stir up." },
-      { q: "23. SYNONYM: <b>CONGENIAL</b>", options: ["Friendly", "Rude", "Angry", "Serious"], answer: "Friendly", explanation: "'Congenial' means friendly and pleasant." },
-      { q: "24. SYNONYM: <b>OBLIVIOUS</b>", options: ["Unaware", "Careful", "Serious", "Attentive"], answer: "Unaware", explanation: "'Oblivious' means unaware." },
-      { q: "25. SYNONYM: <b>AMIABLE</b>", options: ["Pleasant", "Annoyed", "Difficult", "Angry"], answer: "Pleasant", explanation: "'Amiable' means pleasant and friendly." }
+      { q: "1. SYNONYM: <b>OBSCURE</b>", options: ["Hidden", "Dangerous", "Common", "Bright"], answer: 0, explanation: "'Obscure' means hidden or not easily seen." },
+      { q: "2. SYNONYM: <b>ALTRUISTIC</b>", options: ["Selfless", "Cruel", "Courageous", "Greedy"], answer: 0, explanation: "'Altruistic' means selfless, concerned for others." },
+      { q: "3. SYNONYM: <b>VENERATE</b>", options: ["Respect", "Ignore", "Examine", "Provoke"], answer: 0, explanation: "'Venerate' means to respect deeply." },
+      { q: "4. SYNONYM: <b>PRECARIOUS</b>", options: ["Risky", "Clear", "Stable", "Pleasant"], answer: 0, explanation: "'Precarious' means risky or dangerous." },
+      { q: "5. SYNONYM: <b>DISDAIN</b>", options: ["Scorn", "Admire", "Accept", "Envy"], answer: 0, explanation: "'Disdain' means scorn or contempt." },
+      { q: "6. SYNONYM: <b>IMMINENT</b>", options: ["Approaching", "Distant", "Unlikely", "Unclear"], answer: 0, explanation: "'Imminent' means about to happen." },
+      { q: "7. SYNONYM: <b>CONCISE</b>", options: ["Brief", "Detailed", "Confusing", "Expensive"], answer: 0, explanation: "'Concise' means brief and to the point." },
+      { q: "8. SYNONYM: <b>APPEASE</b>", options: ["Soothe", "Excite", "Annoy", "Ignore"], answer: 0, explanation: "'Appease' means to calm or soothe." },
+      { q: "9. SYNONYM: <b>INADVERTENT</b>", options: ["Unintentional", "Careful", "Deliberate", "Quick"], answer: 0, explanation: "'Inadvertent' means unintentional or accidental." },
+      { q: "10. SYNONYM: <b>METICULOUS</b>", options: ["Careful", "Careless", "Rushed", "Boring"], answer: 0, explanation: "'Meticulous' means very careful and precise." },
+      { q: "11. SYNONYM: <b>AMELIORATE</b>", options: ["Improve", "Destroy", "Watch", "Ignore"], answer: 0, explanation: "'Ameliorate' means to make better." },
+      { q: "12. SYNONYM: <b>PROLIFIC</b>", options: ["Productive", "Expensive", "Lazy", "Inactive"], answer: 0, explanation: "'Prolific' means highly productive." },
+      { q: "13. SYNONYM: <b>INDIGENOUS</b>", options: ["Native", "Foreign", "Artificial", "Generous"], answer: 0, explanation: "'Indigenous' means native to a place." },
+      { q: "14. SYNONYM: <b>PLAUDIT</b>", options: ["Praise", "Complaint", "Silence", "Argument"], answer: 0, explanation: "'Plaudit' means praise or applause." },
+      { q: "15. SYNONYM: <b>OSTENTATIOUS</b>", options: ["Showy", "Modest", "Honest", "Shy"], answer: 0, explanation: "'Ostentatious' means showy or flashy." },
+      { q: "16. SYNONYM: <b>TRANQUIL</b>", options: ["Calm", "Busy", "Loud", "Rough"], answer: 0, explanation: "'Tranquil' means calm and peaceful." },
+      { q: "17. SYNONYM: <b>DETRIMENTAL</b>", options: ["Harmful", "Helpful", "Unusual", "Predictable"], answer: 0, explanation: "'Detrimental' means harmful." },
+      { q: "18. SYNONYM: <b>INCREDULOUS</b>", options: ["Skeptical", "Trusting", "Generous", "Hopeful"], answer: 0, explanation: "'Incredulous' means skeptical or disbelieving." },
+      { q: "19. SYNONYM: <b>SUPPLANT</b>", options: ["Replace", "Support", "Explain", "Plant"], answer: 0, explanation: "'Supplant' means to replace." },
+      { q: "20. SYNONYM: <b>DERIDE</b>", options: ["Mock", "Encourage", "Support", "Avoid"], answer: 0, explanation: "'Deride' means to mock or ridicule." },
+      { q: "21. SYNONYM: <b>ABATE</b>", options: ["Decrease", "Increase", "Argue", "Create"], answer: 0, explanation: "'Abate' means to decrease or lessen." },
+      { q: "22. SYNONYM: <b>INCITE</b>", options: ["Provoke", "Calm", "Ignore", "Prevent"], answer: 0, explanation: "'Incite' means to provoke or stir up." },
+      { q: "23. SYNONYM: <b>CONGENIAL</b>", options: ["Friendly", "Rude", "Angry", "Serious"], answer: 0, explanation: "'Congenial' means friendly and pleasant." },
+      { q: "24. SYNONYM: <b>OBLIVIOUS</b>", options: ["Unaware", "Careful", "Serious", "Attentive"], answer: 0, explanation: "'Oblivious' means unaware." },
+      { q: "25. SYNONYM: <b>AMIABLE</b>", options: ["Pleasant", "Annoyed", "Difficult", "Angry"], answer: 0, explanation: "'Amiable' means pleasant and friendly." }
     ];
 
-    // Improved Analogies: Only one best answer, with clear logic/explanation
+    // 25 Unambiguous, SSAT-style analogies (see explanations for relationship clarity)
     const analogies = [
+      // 1
       {
-        q: "26. <b>PUPPY : DOG ::</b>",
-        options: ["Calf : Cow", "Cub : Lion", "Kitten : Cat", "Foal : Horse"],
-        answer: "Kitten : Cat",
-        explanation: "A puppy is a young dog; a kitten is a young cat."
+        q: "26. ARCHIPELAGO : ISLAND ::",
+        options: ["Orchard : Apple", "Bouquet : Flower", "Army : Soldier", "Library : Book"],
+        answer: 1,
+        explanation: "An archipelago is a group of islands; a bouquet is a group of flowers. The others are not 'group of Xs'."
       },
+      // 2
       {
-        q: "27. <b>BRANCH : TREE ::</b>",
-        options: ["Book : Library", "Petal : Flower", "Feather : Bird", "Pencil : Paper"],
-        answer: "Petal : Flower",
-        explanation: "A branch is part of a tree; a petal is part of a flower."
+        q: "27. KNIFE : CUT ::",
+        options: ["Oven : Bake", "Hammer : Pound", "Soap : Clean", "Spoon : Eat"],
+        answer: 1,
+        explanation: "A knife is used to cut; a hammer is used to pound."
       },
+      // 3
       {
-        q: "28. <b>TELESCOPE : ASTRONOMER ::</b>",
-        options: ["Paintbrush : Artist", "Scalpel : Chef", "Stethoscope : Dancer", "Hammer : Baker"],
-        answer: "Paintbrush : Artist",
-        explanation: "An astronomer uses a telescope; an artist uses a paintbrush."
+        q: "28. COCOON : BUTTERFLY ::",
+        options: ["Bud : Flower", "Egg : Chick", "Shell : Crab", "Nest : Bird"],
+        answer: 0,
+        explanation: "A cocoon becomes a butterfly; a bud becomes a flower."
       },
+      // 4
       {
-        q: "29. <b>FAMINE : FOOD ::</b>",
-        options: ["Flood : Water", "Storm : Wind", "Drought : Rain", "Snow : Ice"],
-        answer: "Drought : Rain",
-        explanation: "A famine is a lack of food; a drought is a lack of rain."
+        q: "29. PHYSICIAN : HOSPITAL ::",
+        options: ["Waiter : Restaurant", "Teacher : School", "Pilot : Cockpit", "Actor : Theater"],
+        answer: 1,
+        explanation: "A physician works in a hospital; a teacher works in a school."
       },
+      // 5
       {
-        q: "30. <b>MEOW : CAT ::</b>",
-        options: ["Bark : Dog", "Roar : Bear", "Neigh : Cow", "Hiss : Horse"],
-        answer: "Bark : Dog",
-        explanation: "A meow is a sound a cat makes; a bark is a sound a dog makes."
+        q: "30. ODOMETER : DISTANCE ::",
+        options: ["Thermometer : Temperature", "Barometer : Pressure", "Stopwatch : Time", "Scale : Weight"],
+        answer: 2,
+        explanation: "An odometer measures distance; a stopwatch measures time."
       },
+      // 6
       {
-        q: "31. <b>HUMID : MOIST ::</b>",
-        options: ["Dry : Arid", "Cold : Hot", "Bright : Dim", "Wet : Dry"],
-        answer: "Dry : Arid",
-        explanation: "'Humid' means very moist; 'arid' means very dry."
+        q: "31. SAPLING : TREE ::",
+        options: ["Fledgling : Bird", "Calf : Cow", "Puppy : Dog", "Chick : Hen"],
+        answer: 0,
+        explanation: "A sapling is a young tree; a fledgling is a young bird."
       },
+      // 7
       {
-        q: "32. <b>THERMOMETER : TEMPERATURE ::</b>",
-        options: ["Clock : Time", "Scale : Volume", "Barometer : Light", "Calendar : Weather"],
-        answer: "Clock : Time",
-        explanation: "A thermometer measures temperature; a clock measures time."
+        q: "32. HIBERNATE : BEAR ::",
+        options: ["Migrate : Bird", "Run : Horse", "Swim : Fish", "Hunt : Wolf"],
+        answer: 0,
+        explanation: "A bear hibernates; a bird migrates (unique seasonal behaviors)."
       },
+      // 8
       {
-        q: "33. <b>RAVENOUS : HUNGRY ::</b>",
-        options: ["Sluggish : Slow", "Tiny : Small", "Brave : Cowardly", "Fast : Quick"],
-        answer: "Sluggish : Slow",
-        explanation: "'Ravenous' is to 'hungry' as 'sluggish' is to 'slow' (intensified degree)."
+        q: "33. GLACIER : ICE ::",
+        options: ["Desert : Sand", "River : Water", "Mountain : Rock", "Forest : Tree"],
+        answer: 1,
+        explanation: "A glacier is made of ice; a river is made of water."
       },
+      // 9
       {
-        q: "34. <b>ARCHITECT : BUILDING ::</b>",
-        options: ["Writer : Book", "Chef : Spoon", "Pilot : Airplane", "Sailor : Ship"],
-        answer: "Writer : Book",
-        explanation: "An architect designs a building; a writer creates a book."
+        q: "34. PIANIST : PIANO ::",
+        options: ["Driver : Car", "Painter : Brush", "Chef : Knife", "Singer : Song"],
+        answer: 0,
+        explanation: "A pianist uses a piano; a driver uses a car."
       },
+      // 10
       {
-        q: "35. <b>ANTIDOTE : POISON ::</b>",
-        options: ["Soap : Dirt", "Light : Shadow", "Medicine : Health", "Bandage : Cut"],
-        answer: "Soap : Dirt",
-        explanation: "An antidote counteracts poison; soap counteracts dirt."
+        q: "35. TAILOR : CLOTH ::",
+        options: ["Baker : Dough", "Chef : Knife", "Painter : Easel", "Farmer : Tractor"],
+        answer: 0,
+        explanation: "A tailor works with cloth; a baker works with dough."
       },
+      // 11
       {
-        q: "36. <b>GLACIER : ICE ::</b>",
-        options: ["Desert : Sand", "Volcano : Water", "River : Cloud", "Forest : Mountain"],
-        answer: "Desert : Sand",
-        explanation: "A glacier is made of ice; a desert is made of sand."
+        q: "36. SCALES : FISH ::",
+        options: ["Feathers : Bird", "Fur : Cat", "Shell : Turtle", "Wool : Sheep"],
+        answer: 0,
+        explanation: "A fish has scales; a bird has feathers."
       },
+      // 12
       {
-        q: "37. <b>ORATOR : SPEECH ::</b>",
-        options: ["Singer : Song", "Chef : Plate", "Dancer : Room", "Driver : Car"],
-        answer: "Singer : Song",
-        explanation: "An orator delivers a speech; a singer performs a song."
+        q: "37. BEE : HIVE ::",
+        options: ["Ant : Hill", "Horse : Stable", "Wolf : Den", "Bird : Nest"],
+        answer: 0,
+        explanation: "A bee lives in a hive; an ant lives in a hill (anthill)."
       },
+      // 13
       {
-        q: "38. <b>OMNIVORE : PLANTS ::</b>",
-        options: ["Carnivore : Meat", "Herbivore : Plants", "Insectivore : Insects", "Frugivore : Fruit"],
-        answer: "Herbivore : Plants",
-        explanation: "An omnivore eats both plants and animals; a herbivore eats only plants."
+        q: "38. OVEN : BAKE ::",
+        options: ["Knife : Cut", "Brush : Paint", "Hammer : Pound", "Clock : Time"],
+        answer: 0,
+        explanation: "An oven is used to bake; a knife is used to cut."
       },
+      // 14
       {
-        q: "39. <b>SYMPHONY : MUSICIAN ::</b>",
-        options: ["Poem : Poet", "Law : Judge", "Recipe : Cook", "Painting : Artist"],
-        answer: "Poem : Poet",
-        explanation: "A symphony is performed by musicians; a poem is written by a poet."
+        q: "39. AUTHOR : NOVEL ::",
+        options: ["Poet : Poem", "Doctor : Patient", "Chef : Kitchen", "Singer : Song"],
+        answer: 0,
+        explanation: "An author writes a novel; a poet writes a poem."
       },
+      // 15
       {
-        q: "40. <b>FUSION : BLEND ::</b>",
-        options: ["Mixture : Combine", "Division : Multiply", "Addition : Subtract", "Join : Separate"],
-        answer: "Mixture : Combine",
-        explanation: "'Fusion' means blend; 'mixture' means combine."
+        q: "40. ECLIPSE : SUN ::",
+        options: ["Flood : River", "Drought : Rain", "Famine : Food", "Blackout : Power"],
+        answer: 3,
+        explanation: "An eclipse blocks the sun; a blackout blocks power."
       },
+      // 16
       {
-        q: "41. <b>FRACTION : NUMBER ::</b>",
-        options: ["Slice : Cake", "Word : Page", "Letter : Book", "Room : Building"],
-        answer: "Slice : Cake",
-        explanation: "A fraction is part of a number; a slice is part of a cake."
+        q: "41. PREDATOR : PREY ::",
+        options: ["Hunter : Game", "Farmer : Crop", "Sailor : Ship", "Student : Teacher"],
+        answer: 0,
+        explanation: "A predator hunts prey; a hunter hunts game."
       },
+      // 17
       {
-        q: "42. <b>SPHERE : BALL ::</b>",
-        options: ["Cube : Dice", "Circle : Wheel", "Rectangle : Book", "Triangle : Pyramid"],
-        answer: "Cube : Dice",
-        explanation: "A sphere is the shape of a ball; a cube is the shape of dice."
+        q: "42. PORTRAIT : PERSON ::",
+        options: ["Landscape : Scene", "Novel : Story", "Map : Country", "Recipe : Meal"],
+        answer: 0,
+        explanation: "A portrait is a picture of a person; a landscape is a picture of a scene."
       },
+      // 18
       {
-        q: "43. <b>CHRONIC : TEMPORARY ::</b>",
-        options: ["Lasting : Brief", "Fast : Quick", "Hot : Cold", "Up : Down"],
-        answer: "Lasting : Brief",
-        explanation: "'Chronic' is the opposite of 'temporary'; 'lasting' is the opposite of 'brief.'"
+        q: "43. VETERINARIAN : ANIMAL ::",
+        options: ["Dentist : Tooth", "Mechanic : Car", "Chef : Food", "Firefighter : Fire"],
+        answer: 1,
+        explanation: "A veterinarian treats animals; a mechanic fixes cars."
       },
+      // 19
       {
-        q: "44. <b>GERMINATE : SEED ::</b>",
-        options: ["Hatch : Egg", "Melt : Snow", "Grow : Leaf", "Bloom : Flower"],
-        answer: "Hatch : Egg",
-        explanation: "A seed germinates; an egg hatches."
+        q: "44. STARVE : EAT ::",
+        options: ["Thirst : Drink", "Sleep : Wake", "Laugh : Cry", "Live : Die"],
+        answer: 0,
+        explanation: "To 'starve' is to lack eating; to 'thirst' is to lack drinking."
       },
+      // 20
       {
-        q: "45. <b>BENEFACTOR : DONATION ::</b>",
-        options: ["Judge : Verdict", "Artist : Painting", "Chef : Food", "Teacher : Student"],
-        answer: "Judge : Verdict",
-        explanation: "A benefactor gives a donation; a judge gives a verdict."
+        q: "45. CLONE : COPY ::",
+        options: ["Duplicate : Repeat", "Invent : Create", "Borrow : Lend", "Edit : Revise"],
+        answer: 0,
+        explanation: "To clone is to copy; to duplicate is to repeat."
       },
+      // 21
       {
-        q: "46. <b>APPLAUSE : PERFORMANCE ::</b>",
-        options: ["Criticism : Mistake", "Clap : Hand", "Rain : Parade", "Smile : Joke"],
-        answer: "Criticism : Mistake",
-        explanation: "Applause follows a performance; criticism follows a mistake."
+        q: "46. RUST : IRON ::",
+        options: ["Rot : Wood", "Melt : Ice", "Crack : Glass", "Peel : Fruit"],
+        answer: 0,
+        explanation: "Iron rusts; wood rots."
       },
+      // 22
       {
-        q: "47. <b>RADIATE : LIGHT ::</b>",
-        options: ["Emit : Sound", "Freeze : Water", "Paint : Wall", "Write : Letter"],
-        answer: "Emit : Sound",
-        explanation: "'Radiate' is to send out light; 'emit' is to send out sound."
+        q: "47. ENCORE : PERFORMANCE ::",
+        options: ["Rematch : Game", "Reply : Question", "Footnote : Book", "Retake : Photograph"],
+        answer: 0,
+        explanation: "An encore follows a performance; a rematch follows a game."
       },
+      // 23
       {
-        q: "48. <b>SAGA : STORY ::</b>",
-        options: ["Epic : Poem", "Short : Tale", "Book : Library", "Legend : Fact"],
-        answer: "Epic : Poem",
-        explanation: "A saga is a long story; an epic is a long poem."
+        q: "48. ATOM : MOLECULE ::",
+        options: ["Brick : Wall", "Word : Sentence", "Cell : Organism", "Letter : Word"],
+        answer: 0,
+        explanation: "Atoms make up molecules; bricks make up walls."
       },
+      // 24
       {
-        q: "49. <b>ELUSIVE : CAPTURE ::</b>",
-        options: ["Evasive : Find", "Easy : Difficult", "Simple : Complex", "Fast : Slow"],
-        answer: "Evasive : Find",
-        explanation: "'Elusive' means hard to capture; 'evasive' means hard to find."
+        q: "49. HOARD : COLLECT ::",
+        options: ["Waste : Save", "Squander : Spend", "Amass : Gather", "Scatter : Disperse"],
+        answer: 2,
+        explanation: "'Hoard' means to collect and keep; 'amass' means to gather and keep."
       },
+      // 25
       {
-        q: "50. <b>INCITE : PROVOKE ::</b>",
-        options: ["Hinder : Obstruct", "Grow : Shrink", "Divide : Multiply", "Expand : Reduce"],
-        answer: "Hinder : Obstruct",
-        explanation: "'Incite' means to provoke; 'hinder' means to obstruct."
+        q: "50. BILINGUAL : LANGUAGE ::",
+        options: ["Polygonal : Side", "Ambidextrous : Hand", "Multicolored : Color", "Transparent : Light"],
+        answer: 1,
+        explanation: "A bilingual person uses two languages; an ambidextrous person uses both hands."
       }
     ];
 
-    // Render questions with shuffled options and randomized answer positions
     function renderQuestions(containerId, questions, offset=0) {
       const container = document.getElementById(containerId);
       questions.forEach((item, idx) => {
@@ -311,17 +335,17 @@
         qText.className = "question";
         qText.innerHTML = item.q;
         qDiv.appendChild(qText);
-        // Prepare and shuffle options
+
+        // Prepare and shuffle options with their original index
         let optionObjs = item.options.map((opt, i) => ({
           text: opt,
-          letter: "abcd"[i]
+          origIndex: i
         }));
         shuffle(optionObjs);
-        // Find which letter now corresponds to the correct answer
-        let correctLetter = "";
-        optionObjs.forEach((opt, i) => {
-          if (opt.text === item.answer) correctLetter = "abcd"[i];
-        });
+
+        // Find the new index of the correct answer
+        let correctShuffledIndex = optionObjs.findIndex(opt => opt.origIndex === item.answer);
+
         // Options
         const optionsDiv = document.createElement("div");
         optionsDiv.className = "options";
@@ -330,23 +354,25 @@
           const radio = document.createElement("input");
           radio.type = "radio";
           radio.name = qid;
-          radio.value = "abcd"[i];
+          radio.value = i; // Use shuffled index value!
           label.appendChild(radio);
           label.appendChild(document.createTextNode(opt.text));
           optionsDiv.appendChild(label);
         });
         qDiv.appendChild(optionsDiv);
+
         // Feedback
         const feedbackDiv = document.createElement("div");
         feedbackDiv.className = "feedback";
         qDiv.appendChild(feedbackDiv);
+
         container.appendChild(qDiv);
+
         // Save answer key for this question
-        answerKey[qid] = {correct: correctLetter, explanation: item.explanation};
+        answerKey[qid] = {correct: correctShuffledIndex, explanation: item.explanation};
       });
     }
 
-    // Answer key will be built as we render
     const answerKey = {};
     renderQuestions("questions-synonyms", synonyms, 0);
     renderQuestions("questions-analogies", analogies, 25);
@@ -365,7 +391,7 @@
           const feedbackDiv = block.querySelector('.feedback');
           const ans = answerKey[qid];
           if (!ans) return;
-          if (option.value === ans.correct) {
+          if (Number(option.value) === ans.correct) {
             feedbackDiv.textContent = "Correct! " + ans.explanation;
             feedbackDiv.className = "feedback correct";
             if (!block.dataset.answered) {
