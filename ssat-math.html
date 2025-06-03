@@ -130,314 +130,315 @@
   </div>
   <script>
     // SSAT Upper Level: 50 diverse, challenging questions
+    // For each question, correct is the answer TEXT, not a letter!
     const mathQuestions = [
       // 1-10: Algebra, multi-step equations, exponents
       {
         q: "1. If 2x + 3 = 17, what is the value of x?",
-        options: ["a) 5", "b) 6", "c) 7", "d) 8"],
-        correct: "b",
+        options: ["5", "6", "7", "8"],
+        correct: "7",
         explanation: "2x + 3 = 17 ⇒ 2x = 14 ⇒ x = 7."
       },
       {
         q: "2. Solve for x: 3(x - 4) = 2x + 5",
-        options: ["a) 1", "b) 9", "c) -7", "d) 17"],
-        correct: "b",
+        options: ["1", "9", "-7", "17"],
+        correct: "9",
         explanation: "3x - 12 = 2x + 5 ⇒ x = 17."
       },
       {
         q: "3. What is the value of 2^4 × 2^3?",
-        options: ["a) 14", "b) 32", "c) 128", "d) 64"],
-        correct: "d",
+        options: ["14", "32", "128", "64"],
+        correct: "128",
         explanation: "2^4 × 2^3 = 2^7 = 128."
       },
       {
         q: "4. If 4x - 7 = 25, then x = ?",
-        options: ["a) 8", "b) 6", "c) 4", "d) 12"],
-        correct: "a",
+        options: ["8", "6", "4", "12"],
+        correct: "8",
         explanation: "4x = 32 ⇒ x = 8."
       },
       {
         q: "5. If x^2 = 49, what is x?",
-        options: ["a) 7", "b) -7", "c) Both 7 and -7", "d) 0"],
-        correct: "c",
+        options: ["7", "-7", "Both 7 and -7", "0"],
+        correct: "Both 7 and -7",
         explanation: "x = ±7."
       },
       {
         q: "6. Simplify: (x^3)(x^2)",
-        options: ["a) x^5", "b) x^6", "c) x^9", "d) x^8"],
-        correct: "a",
+        options: ["x^5", "x^6", "x^9", "x^8"],
+        correct: "x^5",
         explanation: "Add exponents: x^3 × x^2 = x^(3+2) = x^5."
       },
       {
         q: "7. If 5x + 7 = 2x + 28, what is x?",
-        options: ["a) 7", "b) 8", "c) 9", "d) 10"],
-        correct: "c",
+        options: ["7", "8", "9", "10"],
+        correct: "7",
         explanation: "5x + 7 = 2x + 28 ⇒ 3x = 21 ⇒ x = 7."
       },
       {
         q: "8. Which value of x satisfies the equation x^2 - 10x + 21 = 0?",
-        options: ["a) 3", "b) 7", "c) Both 3 and 7", "d) 21"],
-        correct: "c",
+        options: ["3", "7", "Both 3 and 7", "21"],
+        correct: "Both 3 and 7",
         explanation: "x^2 - 10x + 21 = (x-3)(x-7) = 0 ⇒ x=3 or x=7."
       },
       {
         q: "9. If 4^x = 16, what is x?",
-        options: ["a) 2", "b) 3", "c) 4", "d) 5"],
-        correct: "a",
+        options: ["2", "3", "4", "5"],
+        correct: "2",
         explanation: "4^x = 16 ⇒ 4^2 = 16 ⇒ x = 2."
       },
       {
         q: "10. Simplify: (2x^2y) × (3xy^2)",
-        options: ["a) 6x^3y^3", "b) 5x^3y^2", "c) 6x^2y^3", "d) 5x^2y^2"],
-        correct: "a",
+        options: ["6x^3y^3", "5x^3y^2", "6x^2y^3", "5x^2y^2"],
+        correct: "6x^3y^3",
         explanation: "Multiply coefficients and add exponents: 2×3=6, x^2×x=x^3, y×y^2=y^3."
       },
 
       // 11-20: Fractions, ratios, percentages, multi-step word problems
       {
         q: "11. What is 60% of 250?",
-        options: ["a) 150", "b) 125", "c) 200", "d) 180"],
-        correct: "a",
+        options: ["150", "125", "200", "180"],
+        correct: "150",
         explanation: "0.60 × 250 = 150."
       },
       {
         q: "12. If 1/3 of a number is 9, what is the number?",
-        options: ["a) 18", "b) 27", "c) 21", "d) 24"],
-        correct: "b",
+        options: ["18", "27", "21", "24"],
+        correct: "27",
         explanation: "x/3 = 9 ⇒ x = 27."
       },
       {
         q: "13. A recipe calls for flour and sugar in a 5:2 ratio. If there are 35 cups of flour, how many cups of sugar are needed?",
-        options: ["a) 7", "b) 10", "c) 12", "d) 14"],
-        correct: "d",
+        options: ["7", "10", "12", "14"],
+        correct: "14",
         explanation: "5:2 = 35:x ⇒ 5x = 70 ⇒ x = 14."
       },
       {
         q: "14. If the price of a $50 item is increased by 30%, what is the new price?",
-        options: ["a) $65", "b) $60", "c) $55", "d) $80"],
-        correct: "a",
+        options: ["$65", "$60", "$55", "$80"],
+        correct: "$65",
         explanation: "$50 × 1.3 = $65."
       },
       {
         q: "15. If a shirt is regularly $48 and is on sale for 25% off, what is the sale price?",
-        options: ["a) $36", "b) $40", "c) $42", "d) $44"],
-        correct: "a",
+        options: ["$36", "$40", "$42", "$44"],
+        correct: "$36",
         explanation: "$48 × 0.75 = $36."
       },
       {
         q: "16. A car travels 120 miles in 2 hours and 30 minutes. What is the average speed in miles per hour?",
-        options: ["a) 40", "b) 45", "c) 48", "d) 50"],
-        correct: "b",
+        options: ["40", "45", "48", "50"],
+        correct: "48",
         explanation: "2.5 hours: 120 ÷ 2.5 = 48 mph."
       },
       {
         q: "17. If 5/8 of a number is 40, what is the number?",
-        options: ["a) 50", "b) 52", "c) 60", "d) 64"],
-        correct: "d",
+        options: ["50", "52", "60", "64"],
+        correct: "64",
         explanation: "5/8 × x = 40 ⇒ x = 40 × 8 ÷ 5 = 64."
       },
       {
         q: "18. A store sells pens in packs of 8 for $5. How much would 40 pens cost?",
-        options: ["a) $20", "b) $24", "c) $25", "d) $30"],
-        correct: "a",
+        options: ["$20", "$24", "$25", "$30"],
+        correct: "$25",
         explanation: "40 ÷ 8 = 5 packs × $5 = $25."
       },
       {
         q: "19. What percent of 80 is 20?",
-        options: ["a) 10%", "b) 15%", "c) 25%", "d) 50%"],
-        correct: "c",
+        options: ["10%", "15%", "25%", "50%"],
+        correct: "25%",
         explanation: "20 ÷ 80 = 0.25 = 25%."
       },
       {
         q: "20. If 40% of a number is 60, what is the number?",
-        options: ["a) 120", "b) 150", "c) 180", "d) 200"],
-        correct: "b",
+        options: ["120", "150", "180", "200"],
+        correct: "150",
         explanation: "0.4x = 60 ⇒ x = 150."
       },
 
       // 21-30: Geometry, area, perimeter, angles, volume, coordinate plane
       {
         q: "21. What is the area of a triangle with base 10 cm and height 12 cm?",
-        options: ["a) 60", "b) 120", "c) 48", "d) 72"],
-        correct: "a",
+        options: ["60", "120", "48", "72"],
+        correct: "60",
         explanation: "Area = 1/2 × base × height = 1/2 × 10 × 12 = 60 cm²."
       },
       {
         q: "22. The sum of the interior angles of a pentagon is:",
-        options: ["a) 360°", "b) 540°", "c) 720°", "d) 900°"],
-        correct: "b",
+        options: ["360°", "540°", "720°", "900°"],
+        correct: "540°",
         explanation: "(n-2)×180 = (5-2)×180 = 540°."
       },
       {
         q: "23. What is the volume of a rectangular box 4 cm × 5 cm × 6 cm?",
-        options: ["a) 120", "b) 100", "c) 90", "d) 80"],
-        correct: "a",
+        options: ["120", "100", "90", "80"],
+        correct: "120",
         explanation: "Volume = 4×5×6 = 120 cm³."
       },
       {
         q: "24. What is the length of the diagonal of a rectangle with sides 6 and 8?",
-        options: ["a) 10", "b) 12", "c) 14", "d) 15"],
-        correct: "a",
+        options: ["10", "12", "14", "15"],
+        correct: "10",
         explanation: "Diagonal = √(6² + 8²) = √(36+64) = √100 = 10."
       },
       {
         q: "25. What is the distance between points (3,4) and (0,0)?",
-        options: ["a) 3", "b) 4", "c) 5", "d) 7"],
-        correct: "c",
+        options: ["3", "4", "5", "7"],
+        correct: "5",
         explanation: "Distance = √(3² + 4²) = √9+16 = √25 = 5."
       },
       {
         q: "26. A circle has a diameter of 10 cm. What is its circumference? (Use π ≈ 3.14)",
-        options: ["a) 15.7", "b) 31.4", "c) 62.8", "d) 78.5"],
-        correct: "b",
+        options: ["15.7", "31.4", "62.8", "78.5"],
+        correct: "31.4",
         explanation: "C = πd = 3.14 × 10 = 31.4 cm."
       },
       {
         q: "27. If the perimeter of a square is 36 cm, what is the length of one side?",
-        options: ["a) 6", "b) 8", "c) 9", "d) 12"],
-        correct: "c",
+        options: ["6", "8", "9", "12"],
+        correct: "9",
         explanation: "Perimeter = 4 × side ⇒ 36/4 = 9 cm."
       },
       {
         q: "28. The area of a circle with radius 7 cm is:",
-        options: ["a) 49π", "b) 14π", "c) 21π", "d) 28π"],
-        correct: "a",
+        options: ["49π", "14π", "21π", "28π"],
+        correct: "49π",
         explanation: "Area = πr² = π×7² = 49π."
       },
       {
         q: "29. Which point lies on the line y = 2x + 1?",
-        options: ["a) (2,5)", "b) (1,1)", "c) (0,2)", "d) (3,8)"],
-        correct: "a",
+        options: ["(2,5)", "(1,1)", "(0,2)", "(3,8)"],
+        correct: "(2,5)",
         explanation: "y = 2×2 + 1 = 5, so (2,5) is on the line."
       },
       {
         q: "30. In a right triangle, if one leg is 9 cm and the other is 12 cm, what is the length of the hypotenuse?",
-        options: ["a) 15", "b) 13", "c) 12", "d) 10"],
-        correct: "a",
+        options: ["15", "13", "12", "10"],
+        correct: "15",
         explanation: "Hypotenuse = √(9²+12²)=√(81+144)=√225=15 cm."
       },
 
       // 31-40: More algebra, inequalities, functions, sequences
       {
         q: "31. If f(x) = 2x + 5, what is f(3)?",
-        options: ["a) 6", "b) 8", "c) 11", "d) 13"],
-        correct: "c",
+        options: ["6", "8", "11", "13"],
+        correct: "11",
         explanation: "f(3) = 2×3 + 5 = 11."
       },
       {
         q: "32. If 3x - 4 > 8, what is the smallest integer value of x?",
-        options: ["a) 3", "b) 4", "c) 5", "d) 6"],
-        correct: "c",
+        options: ["3", "4", "5", "6"],
+        correct: "5",
         explanation: "3x > 12 ⇒ x > 4; smallest integer is 5."
       },
       {
         q: "33. If a sequence starts 2, 6, 18, 54, ..., what is the 5th term?",
-        options: ["a) 108", "b) 162", "c) 216", "d) 324"],
-        correct: "b",
+        options: ["108", "162", "216", "324"],
+        correct: "162",
         explanation: "Multiply by 3 each time: 54×3=162."
       },
       {
         q: "34. If x^2 = 81, x > 0, what is x?",
-        options: ["a) 8", "b) 9", "c) -9", "d) 81"],
-        correct: "b",
+        options: ["8", "9", "-9", "81"],
+        correct: "9",
         explanation: "x = 9 (since x>0)."
       },
       {
         q: "35. If 2x + 5y = 24 and x = 2, what is y?",
-        options: ["a) 4", "b) 5", "c) 6", "d) 7"],
-        correct: "a",
+        options: ["4", "5", "6", "7"],
+        correct: "4",
         explanation: "2×2+5y=24→4+5y=24→5y=20→y=4."
       },
       {
         q: "36. The sum of the first five positive even numbers is:",
-        options: ["a) 20", "b) 30", "c) 40", "d) 50"],
-        correct: "b",
+        options: ["20", "30", "40", "50"],
+        correct: "30",
         explanation: "2+4+6+8+10=30."
       },
       {
         q: "37. If x < 2 and x > -1, which could be x?",
-        options: ["a) -2", "b) 2", "c) 1", "d) 3"],
-        correct: "c",
+        options: ["-2", "2", "1", "3"],
+        correct: "1",
         explanation: "1 is between -1 and 2."
       },
       {
         q: "38. If f(x) = x^2 - 3x, what is f(4)?",
-        options: ["a) 4", "b) 8", "c) 12", "d) 28"],
-        correct: "a",
+        options: ["4", "8", "12", "28"],
+        correct: "4",
         explanation: "4^2 - 3×4 = 16 - 12 = 4."
       },
       {
         q: "39. Which number is a solution to the inequality 2x + 1 ≤ 7?",
-        options: ["a) 4", "b) 5", "c) 3", "d) 6"],
-        correct: "c",
+        options: ["4", "5", "3", "6"],
+        correct: "3",
         explanation: "2×3+1=7, so x=3 works."
       },
       {
         q: "40. What is the 8th term of the sequence: 1, 4, 7, 10, ...?",
-        options: ["a) 19", "b) 21", "c) 22", "d) 24"],
-        correct: "b",
+        options: ["19", "21", "22", "24"],
+        correct: "22",
         explanation: "Each term increases by 3: 1+3×(8-1)=1+21=22."
       },
 
       // 41-50: Probability, data analysis, advanced word problems, number properties
       {
         q: "41. What is the probability of drawing a red card from a standard deck of 52 cards?",
-        options: ["a) 1/2", "b) 1/4", "c) 1/13", "d) 1/26"],
-        correct: "a",
+        options: ["1/2", "1/4", "1/13", "1/26"],
+        correct: "1/2",
         explanation: "26 red cards out of 52; 26/52=1/2."
       },
       {
         q: "42. If the mean of 6, 8, 12, and x is 10, what is x?",
-        options: ["a) 10", "b) 12", "c) 14", "d) 16"],
-        correct: "c",
+        options: ["10", "12", "14", "16"],
+        correct: "14",
         explanation: "(6+8+12+x)/4=10→26+x=40→x=14."
       },
       {
         q: "43. What is the median of 7, 2, 9, 5, 11?",
-        options: ["a) 5", "b) 7", "c) 9", "d) 11"],
-        correct: "b",
+        options: ["5", "7", "9", "11"],
+        correct: "7",
         explanation: "Order: 2,5,7,9,11. Median is 7."
       },
       {
         q: "44. If a fair die is rolled, what is the probability of rolling an even number?",
-        options: ["a) 1/2", "b) 1/3", "c) 1/4", "d) 1/6"],
-        correct: "a",
+        options: ["1/2", "1/3", "1/4", "1/6"],
+        correct: "1/2",
         explanation: "3 even out of 6: 3/6=1/2."
       },
       {
         q: "45. What is the greatest common factor (GCF) of 36 and 48?",
-        options: ["a) 6", "b) 8", "c) 12", "d) 24"],
-        correct: "c",
+        options: ["6", "8", "12", "24"],
+        correct: "12",
         explanation: "36: 1,2,3,4,6,9,12,18,36; 48: 1,2,3,4,6,8,12,16,24,48; GCF=12."
       },
       {
         q: "46. A bag contains 3 red, 5 blue, and 2 green marbles. What is the probability of drawing a blue marble?",
-        options: ["a) 1/2", "b) 1/3", "c) 1/5", "d) 1/10"],
-        correct: "b",
+        options: ["1/2", "1/3", "1/5", "1/10"],
+        correct: "1/2",
         explanation: "Total: 10; blue: 5/10=1/2."
       },
       {
         q: "47. What is the mode of the set {2, 3, 5, 5, 7, 8, 8, 8, 9}?",
-        options: ["a) 5", "b) 7", "c) 8", "d) 9"],
-        correct: "c",
+        options: ["5", "7", "8", "9"],
+        correct: "8",
         explanation: "8 appears most often."
       },
       {
         q: "48. The difference between the largest and smallest number in the set {4, 8, 15, 16, 23, 42} is:",
-        options: ["a) 38", "b) 39", "c) 40", "d) 42"],
-        correct: "a",
+        options: ["38", "39", "40", "42"],
+        correct: "38",
         explanation: "42 - 4 = 38."
       },
       {
         q: "49. If 2x + y = 10 and x - y = 2, what is the value of x?",
-        options: ["a) 2", "b) 3", "c) 4", "d) 5"],
-        correct: "d",
+        options: ["2", "3", "4", "5"],
+        correct: "4",
         explanation: "Solve: x - y = 2 ⇒ y = x - 2; 2x + (x-2) = 10 ⇒ 3x = 12 ⇒ x = 4."
       },
       {
         q: "50. What is the sum of the first 10 positive integers?",
-        options: ["a) 45", "b) 50", "c) 55", "d) 60"],
-        correct: "c",
+        options: ["45", "50", "55", "60"],
+        correct: "55",
         explanation: "Sum = n(n+1)/2 = 10×11/2 = 55."
       }
     ];
@@ -466,17 +467,16 @@
         qText.innerHTML = item.q;
         qDiv.appendChild(qText);
 
-        // Shuffle options
+        // Prepare and shuffle options
         let optionObjs = item.options.map((opt, i) => ({
           text: opt,
           letter: "abcd"[i]
         }));
         shuffle(optionObjs);
-        // Find correct letter
-        let correctLetter = "";
-        optionObjs.forEach((opt, i) => {
-          if (opt.text.startsWith(item.correct + ")")) correctLetter = "abcd"[i];
-        });
+
+        // Find the new letter that matches the correct answer text
+        let correctIndex = optionObjs.findIndex(opt => opt.text === item.correct);
+        let correctLetter = "abcd"[correctIndex];
 
         // Options
         const optionsDiv = document.createElement("div");
