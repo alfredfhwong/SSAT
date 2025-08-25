@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepPal - Daily SSAT Prep on WhatsApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-button {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgb(14 165 233 / 0.2), 0 4px 6px -4px rgb(14 165 233 / 0.2);
+        }
+        .feature-card {
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .phone-mockup {
+            background-color: #111;
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            width: 320px;
+            margin: auto;
+        }
+        .phone-screen {
+            background-color: #e5ddd5;
+            background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
+            background-size: cover;
+            height: 580px;
+            border-radius: 25px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; /* Make it scrollable */
+        }
+        /* Custom scrollbar for webkit browsers */
+        .phone-screen::-webkit-scrollbar {
+            width: 4px;
+        }
+        .phone-screen::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .phone-screen::-webkit-scrollbar-thumb {
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 20px;
+        }
+        .chat-bubble {
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.5rem;
+            max-width: 85%;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            flex-shrink: 0;
+        }
+        .chat-bot {
+            background-color: #ffffff;
+            color: #1f2937;
+            align-self: flex-start;
+            border-bottom-left-radius: 0.25rem;
+        }
+        .chat-user {
+            background-color: #dcf8c6;
+            color: #1f2937;
+            align-self: flex-end;
+            border-bottom-right-radius: 0.25rem;
+        }
+        .chat-list {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            align-self: flex-start;
+            width: 90%;
+            flex-shrink: 0;
+        }
+        .chat-list-item {
+            padding: 0.75rem;
+            border-top: 1px solid #f1f5f9;
+            color: #0ea5e9;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .chat-list-item:first-child {
+            border-top: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- Header -->
+    <header class="sticky top-0 bg-white/80 backdrop-blur-lg z-10 border-b border-slate-200">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-bold text-sky-600">PrepPal</h1>
+            <a href="#signup" class="cta-button bg-sky-500 text-white font-semibold py-2 px-5 rounded-full">Get Early Access</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-6xl font-black text-white leading-tight">The 5-Minute Habit for Top SSAT Scores</h2>
+            <p class="mt-4 text-lg md:text-xl text-slate-200 max-w-3xl mx-auto">Smarter SSAT prep is now on WhatsApp. Get a personalized, bite-sized quiz every day and build a vocabulary that actually sticks.</p>
+            <a href="#signup" class="cta-button inline-block mt-8 bg-sky-500 text-white font-bold text-lg py-4 px-8 rounded-full">Join the Waitlist & Lock In Your Discount</a>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="chat-bubble chat-bot">
+                            Morning! Ready for your 5-minute vocab workout? 💪 Here's your first word...
+                        </div>
+                        <div class="chat-list">
+                            <p class="font-bold text-sm px-3 pb-2">EPHEMERAL</p>
+                            <div class="chat-list-item">A. everlasting</div>
+                            <div class="chat-list-item">B. fleeting</div>
+                            <div class="chat-list-item">C. powerful</div>
+                            <div class="chat-list-item">D. essential</div>
+                            <div class="chat-list-item">E. beautiful</div>
+                        </div>
+                        <div class="chat-bubble chat-user">
+                            B. fleeting
+                        </div>
+                        <div class="chat-bubble chat-bot">
+                           <p>✅ Correct! The answer is <b>fleeting</b>.</p>
+                           <p class="mt-2 border-t border-slate-200 pt-2"><b>Explanation:</b> <i>Ephemeral</i> means lasting for a very short time.</p>
+                           <p class="mt-2"><b>Synonyms:</b> transitory, momentary, transient</p>
+                           <p class="mt-2"><b>Memory Tip:</b> It sounds like 'a funeral'. Funerals are for things that don't last forever. Sad, but it helps you remember!</p>
+                        </div>
+                         <div class="chat-bubble chat-bot">
+                            Next one! This is an analogy...
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Learning That Fits Your Life</h3>
+                    <p class="mt-3 text-lg text-slate-600 mb-8">Test prep shouldn't be a chore. We made it as easy as chatting with a friend.</p>
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center font-bold text-xl">1</div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold">Add PrepPal on WhatsApp</h4>
+                                <p class="mt-1 text-slate-600">No apps, no downloads, no new accounts. Get started instantly.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center font-bold text-xl">2</div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold">Take Your Daily Quiz</h4>
+                                <p class="mt-1 text-slate-600">Receive a 5-minute, personalized quiz every morning, right where you already chat.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center font-bold text-xl">3</div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold">Learn and Remember</h4>
+                                <p class="mt-1 text-slate-600">Get instant feedback with clear explanations and clever memory tips that make words stick.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-slate-50 py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">The Science of Higher Scores</h3>
+                <p class="mt-3 text-lg text-slate-600">We combine proven learning science with smart technology to help you succeed.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl">🧠</div>
+                    <h4 class="text-xl font-semibold mt-4">Remember Words Permanently</h4>
+                    <p class="mt-2 text-slate-600">Our Spaced Repetition algorithm schedules reviews at the perfect moment, scientifically proven to move words into your long-term memory.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl">🤖</div>
+                    <h4 class="text-xl font-semibold mt-4">Learn Faster, Not Harder</h4>
+                    <p class="mt-2 text-slate-600">Our AI adapts to your unique learning style, creating personalized quizzes that focus on the words you need to work on most.</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-lg shadow-sm text-center">
+                    <div class="text-4xl">💡</div>
+                    <h4 class="text-xl font-semibold mt-4">Achieve More with Less Effort</h4>
+                    <p class="mt-2 text-slate-600">Go beyond definitions. Our clever memory tips and daily streaks are designed to make words stick and build a lasting study habit in just 5 minutes a day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Loved by Students & Parents</h4>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="bg-slate-50 p-8 rounded-lg text-center">
+                    <img src="https://images.unsplash.com/photo-1599842057874-37393e9342df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80" alt="Student smiling" class="w-24 h-24 rounded-full mx-auto -mt-20 border-4 border-white shadow-lg object-cover" onerror="this.onerror=null;this.src='https://placehold.co/100x100/a7f3d0/14532d?text=AP';">
+                    <p class="text-slate-600 mt-6">"PrepPal is the only study tool I've actually stuck with. It's so easy to do on the bus to school, and I've learned more words in a month than I did all last year."</p>
+                    <p class="mt-4 font-semibold text-slate-900">- Alexis P., 8th Grade</p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-lg text-center">
+                    <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80" alt="Parent smiling" class="w-24 h-24 rounded-full mx-auto -mt-20 border-4 border-white shadow-lg object-cover" onerror="this.onerror=null;this.src='https://placehold.co/100x100/bae6fd/0c4a6e?text=MT';">
+                    <p class="text-slate-600 mt-6">"I was worried about my son's SSAT prep. PrepPal made it a daily habit instead of a nightly fight. His confidence has skyrocketed, and the progress is amazing."</p>
+                    <p class="mt-4 font-semibold text-slate-900">- Mark T., Parent</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signup Section -->
+    <section id="signup" class="hero-gradient py-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-2xl mx-auto">
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-900">Be the First to Know</h4>
+                <p class="mt-3 text-lg text-slate-600">We're launching soon! Join the exclusive waitlist for early access and special offers.</p>
+                
+                <!-- Waitlist Benefits -->
+                <div class="mt-8 text-left grid sm:grid-cols-2 gap-6 bg-white/50 p-6 rounded-lg border border-sky-200">
+                    <h4 class="sm:col-span-2 text-xl font-bold text-slate-800 text-center mb-2">Join Today to Get:</h4>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">🎁</span>
+                        <div>
+                            <p class="font-semibold">A 50% Discount</p>
+                            <p class="text-sm text-slate-600">Lock in a 50% discount on your first three months of PrepPal Pro.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">📚</span>
+                        <div>
+                            <p class="font-semibold">Free Digital Flashcards</p>
+                            <p class="text-sm text-slate-600">Receive our "Top 200 SSAT Words" digital flashcard deck, instantly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <!-- 
+                        HOW TO MAKE THIS FORM WORK:
+                        1. Go to https://formspree.io/ and create a new form.
+                        2. Formspree will give you a URL endpoint.
+                        3. Replace the placeholder "YOUR_FORM_ENDPOINT" in the action attribute below with your actual Formspree URL.
+                        4. That's it! Submissions will now be sent to your email.
+                    -->
+                    <form id="signup-form" action="https://formspree.io/f/YOUR_FORM_ENDPOINT" method="POST" class="grid sm:grid-cols-3 gap-4">
+                        <input type="text" name="name" placeholder="Your Name" class="sm:col-span-1 w-full p-3 rounded-md border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+                        <input type="email" name="email" placeholder="Your Email Address" class="sm:col-span-2 w-full p-3 rounded-md border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:outline-none" required>
+                        <button type="submit" class="sm:col-span-3 cta-button w-full bg-sky-500 text-white font-bold text-lg py-3 px-8 rounded-md">Join the Waitlist</button>
+                    </form>
+                    <div id="success-message" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-md">
+                        Thanks for signing up! We'll be in touch soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-bold text-lg text-white">PrepPal</p>
+            <p class="mt-2 text-sm">&copy; 2025 PrepPal Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const signupForm = document.getElementById('signup-form');
+        
+        signupForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const data = new FormData(form);
+            const successMessage = document.getElementById('success-message');
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    signupForm.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                } else {
+                    // This will handle the case where Formspree returns an error
+                    // For a real app, you'd want more sophisticated error handling
+                    alert('Oops! There was a problem submitting your form.');
+                }
+            } catch (error) {
+                // This will handle network errors
+                alert('Oops! There was a problem submitting your form.');
+            }
+        });
+    </script>
+
+</body>
+</html>
