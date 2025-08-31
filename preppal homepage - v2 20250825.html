@@ -43,31 +43,35 @@
             background-color: #e5ddd5;
             background-image: url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg');
             background-size: cover;
-            height: 580px;
+            height: 600px;
             border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-header {
+            background-color: #075e54;
+            color: white;
+            padding: 10px 15px;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .chat-content {
             padding: 1rem;
             display: flex;
             flex-direction: column;
-            overflow-y: auto; /* Make it scrollable */
-        }
-        /* Custom scrollbar for webkit browsers */
-        .phone-screen::-webkit-scrollbar {
-            width: 4px;
-        }
-        .phone-screen::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .phone-screen::-webkit-scrollbar-thumb {
-            background-color: rgba(0,0,0,0.2);
-            border-radius: 20px;
+            flex-grow: 1;
+            justify-content: center; /* Center the content vertically */
         }
         .chat-bubble {
-            padding: 0.5rem 1rem;
+            padding: 6px 12px;
             border-radius: 0.75rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px; /* Adjusted margin */
             max-width: 85%;
-            font-size: 0.875rem;
-            line-height: 1.5;
+            font-size: 0.8rem;
+            line-height: 1.4;
             box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             flex-shrink: 0;
         }
@@ -86,18 +90,19 @@
         .chat-list {
             background-color: #ffffff;
             border-radius: 0.75rem;
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            margin-bottom: 8px; /* Adjusted margin */
             align-self: flex-start;
             width: 90%;
             flex-shrink: 0;
         }
         .chat-list-item {
-            padding: 0.75rem;
+            padding: 0.5rem;
             border-top: 1px solid #f1f5f9;
             color: #0ea5e9;
             font-weight: 500;
             cursor: pointer;
+            font-size: 0.8rem;
         }
         .chat-list-item:first-child {
             border-top: none;
@@ -129,28 +134,31 @@
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="phone-mockup">
                     <div class="phone-screen">
-                        <div class="chat-bubble chat-bot">
-                            Morning! Ready for your 5-minute vocab workout? 💪 Here's your first word...
+                        <div class="chat-header">
+                            <img src="https://placehold.co/40x40/ffffff/075e54?text=P" alt="PrepPal logo" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <h3 class="font-semibold">PrepPal</h3>
+                                <p class="text-xs text-slate-200">online</p>
+                            </div>
                         </div>
-                        <div class="chat-list">
-                            <p class="font-bold text-sm px-3 pb-2">EPHEMERAL</p>
-                            <div class="chat-list-item">A. everlasting</div>
-                            <div class="chat-list-item">B. fleeting</div>
-                            <div class="chat-list-item">C. powerful</div>
-                            <div class="chat-list-item">D. essential</div>
-                            <div class="chat-list-item">E. beautiful</div>
-                        </div>
-                        <div class="chat-bubble chat-user">
-                            B. fleeting
-                        </div>
-                        <div class="chat-bubble chat-bot">
-                           <p>✅ Correct! The answer is <b>fleeting</b>.</p>
-                           <p class="mt-2 border-t border-slate-200 pt-2"><b>Explanation:</b> <i>Ephemeral</i> means lasting for a very short time.</p>
-                           <p class="mt-2"><b>Synonyms:</b> transitory, momentary, transient</p>
-                           <p class="mt-2"><b>Memory Tip:</b> It sounds like 'a funeral'. Funerals are for things that don't last forever. Sad, but it helps you remember!</p>
-                        </div>
-                         <div class="chat-bubble chat-bot">
-                            Next one! This is an analogy...
+                        <div class="chat-content">
+                            <div class="chat-list">
+                                <p class="font-bold text-xs px-2 pb-1">EPHEMERAL</p>
+                                <div class="chat-list-item">A. everlasting</div>
+                                <div class="chat-list-item">B. fleeting</div>
+                                <div class="chat-list-item">C. powerful</div>
+                                <div class="chat-list-item">D. essential</div>
+                                <div class="chat-list-item">E. beautiful</div>
+                            </div>
+                            <div class="chat-bubble chat-user">
+                                B. fleeting
+                            </div>
+                            <div class="chat-bubble chat-bot">
+                               <p>✅ Correct! The answer is <b>fleeting</b>.</p>
+                               <p class="mt-2 border-t border-slate-200 pt-2"><b>Explanation:</b> <i>Ephemeral</i> means lasting for a very short time.</p>
+                               <p class="mt-1"><b>Synonyms:</b> transitory, momentary, transient</p>
+                               <p class="mt-1"><b>Memory Tip:</b> It sounds like 'a funeral'. Funerals are for things that don't last forever. Sad, but it helps you remember!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -323,3 +331,4 @@
 
 </body>
 </html>
+
